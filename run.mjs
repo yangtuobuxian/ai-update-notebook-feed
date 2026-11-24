@@ -1,6 +1,6 @@
 import { collect, publicFeed, legacyFeed } from './pipeline.mjs'
 import { startRunnerModel, stopRunnerModel } from './runner-model.mjs'
-import { readFile, writeFile, rename, mkdir, rm } from 'node:fs/promises'
+import { copyFile, readFile, writeFile, rename, mkdir, rm } from 'node:fs/promises'
 import { randomUUID } from 'node:crypto'
 import { fileURLToPath } from 'node:url'
 import path from 'node:path'
@@ -55,5 +55,7 @@ for (const [name, feed] of [['edition.json', publicFeed(snapshot)], ['feed.json'
   await writeFile(path.join(site, name), published)
   await writeFile(path.join(root, name), published)
 }
-await writeFile(path.join(site, 'index.html'), '<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>更新簿</title><h1>更新簿</h1><p>AI 产品官方更新与中文导读</p><a href="./edition.json">读取全部更新（JSON）</a></html>')
+for (const name of ['index.html', 'qr.png']) {
+  await copyFile(path.join(root, 'web', name), path.join(site, name))
+}
 if (!successes) throw new Error('所有来源均未成功，继续保留上次发布的数据')

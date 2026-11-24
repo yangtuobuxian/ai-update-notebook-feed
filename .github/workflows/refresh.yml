@@ -52,6 +52,6 @@ jobs:
       name: github-pages
       url: ${{ steps.publish.outputs.page_url }}
     steps:
-      - name: 发布只读数据
+      - name: 发布更新簿网页版与最新数据
         id: publish
         uses: actions/deploy-pages@v4

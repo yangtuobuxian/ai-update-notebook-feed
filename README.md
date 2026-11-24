@@ -1,6 +1,6 @@
 # 更新簿数据源
 
-为更新簿微信小程序提供公开的 AI 产品更新和中文导读。每条记录有发布日期、官方链接和导读来源。
+用微信扫描固定二维码，或直接打开网页，就能读到 AI 产品的官方更新和中文导读。每条记录有发布日期、官方链接和导读来源。[打开更新簿](https://yangtuobuxian.github.io/ai-update-notebook-feed/) · [保存二维码](https://yangtuobuxian.github.io/ai-update-notebook-feed/qr.png)
 
 GitHub Actions 每小时第 17 分钟检查 Codex CLI、Claude Code、Ollama 的官方正式发行版和 DeepSeek API 的中文更新日志。新增或修改的记录由 Qwen3-4B 在本次运行的 Ubuntu 机器上生成中文导读。首批收录的部分版本附有与官方说明核对过的导读。模型暂时不可用时，中文来源先展示官方摘录，英文来源显示待补充，后续采集会重试。
 
@@ -9,7 +9,7 @@ GitHub Actions 每小时第 17 分钟检查 Codex CLI、Claude Code、Ollama 的
 本仓库 GitHub Pages 下的 `edition.json` 提供完整更新库。`feed.json` 继续为首版客户端提供 Codex CLI 与 DeepSeek 的更新。两份文件都写进仓库根目录，供 GitHub API 与 jsDelivr 备用线路读取。
 
 - `node --test test.mjs` 运行回归测试。
-- `node run.mjs` 在本地更新 `state.json` 并生成 `site/feed.json`。本地也可通过 `NOTEBOOK_MODEL_URL` 和 `NOTEBOOK_MODEL_NAME` 连接兼容的模型服务。
+- `node run.mjs` 在本地采集并生成 `site/`，其中包括网页成品、固定二维码和两份 JSON 数据。本地也可通过 `NOTEBOOK_MODEL_URL` 和 `NOTEBOOK_MODEL_NAME` 连接兼容的模型服务。
 - 云端按需从官方发行版下载模型与 llama.cpp，使用固定版本和 SHA-256 校验。模型只在本机回环地址监听，运行结束后退出。
 
 [Codex CLI 官方发行页](https://github.com/openai/codex/releases) · [DeepSeek 官方更新日志](https://api-docs.deepseek.com/zh-cn/updates/) · [模型仓库](https://huggingface.co/Qwen/Qwen3-4B-GGUF)
