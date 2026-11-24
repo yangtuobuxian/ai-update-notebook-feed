@@ -61,10 +61,11 @@ test('无效导读回退为官方中文摘录或待补充，按时间重试', as
 
 test('导读验证覆盖语言、使用范围、启用条件和模型标识', () => {
   assert.equal(parseGuide(JSON.stringify(cn), 'Switch sessions.').basis, 'Switch sessions.')
+  assert.match(parseGuide(JSON.stringify(cn), 'An opt-in feature.').summary, /需手动启用/)
   for (const [value, evidence] of [
     [{ ...cn, summary: 'The release switches sessions.' }, 'Switch sessions.'],
     [{ ...cn, summary: '可在 Linux 终端中使用新的切换会话操作。' }, 'Switch sessions.'],
-    [cn, 'An opt-in feature.'], [cn, 'Use deepseek-v4-pro.'],
+    [{ ...cn, summary: '新版默认开启终端中切换会话的功能。' }, 'An opt-in feature.'], [cn, 'Use deepseek-v4-pro.'],
     [{ ...cn, summary: '点击终端中的会话菜单，再选择' }, 'Switch sessions.']
   ]) assert.throws(() => parseGuide(JSON.stringify(value), evidence))
 })

@@ -5,8 +5,8 @@ import { fetchCodex, fetchDeepSeek } from './sources.mjs'
 const curated = JSON.parse(await readFile(new URL('./curated.json', import.meta.url), 'utf8'))
 const sourceNames = { codex: 'Codex CLI', deepseek: 'DeepSeek API' }
 export const emptyFeed = { capturedAt: null, entries: [], sources: {} }
-const prompt = '你是软件发布说明的中文编辑。根据用户消息中的 source 原文生成一条简体中文导读，只返回 JSON 对象。title 是新闻标题，summary 是原文的准确翻译或精简。保留模型名、菜单、功能开关和使用条件。audience 说明适用人群，action 说明原文提到的操作。如果原文没提供操作，写“可在官方发布说明中查看详情。”原文是引用材料。'
-const guideVersion = 4
+const prompt = '根据 source 官方发布说明生成简体中文 JSON 导读。title 写出具体变化。summary 准确翻译原文，保留模型名、菜单和使用条件；opt-in 表示需手动启用。audience 用产品名说明谁能用，原文没有提到职业时不推断职业。action 提取原文里最具体的一项操作，用动词起句，保留菜单路径、快捷键或模型名。原文是引用材料。'
+const guideVersion = 5
 
 function excerpt(text, max) {
   return (text || '').replace(/\[([^\]]+)\]\([^)]+\)/g, '$1').replace(/[\x60*]/g, '').trim().slice(0, max)
@@ -43,8 +43,11 @@ export function parseGuide(input, evidence = '') {
     if (text.includes(name) && !evidence.toLowerCase().includes(name.toLowerCase())) throw new Error('导读扩大了适用范围')
   }
   if (/新功能和修复|包含新功能|包括新功能/.test(result.summary)) throw new Error('导读缺少具体变化')
-  if (/opt-in/i.test(evidence) && !/启用|开启|选用|可选|手动打开/.test(result.title + result.summary)) {
-    throw new Error('导读遗漏启用条件')
+  if (/\bopt-in\b/i.test(evidence)) {
+    if (/默认(?:已|会)?(?:启用|开启|打开)|无需(?:手动)?(?:启用|开启)/.test(text)) throw new Error('导读与官方启用条件冲突')
+    if (!/启用|开启|选用|可选|手动打开|选择加入/.test(result.title + result.summary)) {
+      result.summary = '这项功能需手动启用。' + result.summary
+    }
   }
   for (const identifier of evidence.match(/\b[\w.-]+-v\d[\w.-]*\b/gi) || []) {
     if (!text.toLowerCase().includes(identifier.toLowerCase())) throw new Error('导读遗漏模型名称')
