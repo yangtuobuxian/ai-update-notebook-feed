@@ -1,14 +1,14 @@
 {
-  "capturedAt": "2026-11-24T12:16:11.778Z",
-  "checkedAt": "2026-11-24T12:16:11.778Z",
+  "capturedAt": "2026-11-24T12:17:41.281Z",
+  "checkedAt": "2026-11-24T12:17:41.281Z",
   "sources": {
     "codex": {
       "available": true,
-      "checkedAt": "2026-11-24T12:16:11.778Z"
+      "checkedAt": "2026-11-24T12:17:41.281Z"
     },
     "deepseek": {
       "available": true,
-      "checkedAt": "2026-11-24T12:16:11.778Z"
+      "checkedAt": "2026-11-24T12:17:41.281Z"
     }
   },
   "entries": [
@@ -131,8 +131,8 @@
         "audience": "Codex CLI 用户。",
         "action": "打开这条记录附带的官方发布说明，查看当时的使用条件。"
       },
-      "attempts": 0,
-      "nextTry": 0,
+      "attempts": 1,
+      "nextTry": 1795526261281,
       "attemptFormat": 4
     },
     {
@@ -150,11 +150,13 @@
       "firstSeenAt": "2026-11-24T11:52:19.653Z",
       "digest": "4d4b9626bf9c2345f5eaee655ee52f2d4496d8d9d059481915de605f29d16acb",
       "guide": {
-        "kind": "pending",
-        "title": "Codex CLI 发布 0.168.0",
-        "summary": "官方已发布这个版本，中文细节待补充。",
-        "audience": "Codex CLI 用户。",
-        "action": "打开这条记录附带的官方发布说明，查看当时的使用条件。"
+        "kind": "ai",
+        "title": "Codex CLI 新增模型提供商管理功能",
+        "summary": "用户可以在 Codex CLI 的 Sessions 菜单下查看和选择模型提供商，并为新的聊天设置默认的模型提供商。",
+        "audience": "开发者和系统管理员",
+        "action": "可在官方发布说明中查看详情。",
+        "basis": "Browse model providers under Sessions → Model providers and choose the default for new chats.",
+        "format": 4
       },
       "attempts": 0,
       "nextTry": 0,
@@ -266,11 +268,13 @@
       "firstSeenAt": "2026-11-24T11:52:19.653Z",
       "digest": "0abddf28e52dee1980b00ed225e9d2748ee069bf20280736ac62d8c1c798f4ab",
       "guide": {
-        "kind": "extract",
-        "title": "DeepSeek-V4-Pro 更新",
+        "kind": "ai",
+        "title": "DeepSeek API 升级至 V4-Pro 版本",
         "summary": "DeepSeek-V4-Pro 正式版已同步在 APP、网页端和 API 更新上线。API 调用方式不变，模型名设置为 deepseek-v4-pro，即可使用最新版本。",
-        "audience": "DeepSeek API 用户。",
-        "action": "打开这条记录附带的官方发布说明，查看当时的使用条件。"
+        "audience": "开发者",
+        "action": "可在官方发布说明中查看详情。",
+        "basis": "DeepSeek-V4-Pro 更新。DeepSeek-V4-Pro 正式版已同步在 APP、网页端和 API 更新上线。API 调用方式不变，模型名设置为 deepseek-v4-pro，即可使用最新版本。",
+        "format": 4
       },
       "attempts": 0,
       "nextTry": 0,
@@ -289,11 +293,13 @@
       "firstSeenAt": "2026-11-24T11:52:19.653Z",
       "digest": "68a49c5d04ea61308bf9c1a26e525025547d26ba78a2aec96b6c335310d8ce94",
       "guide": {
-        "kind": "extract",
-        "title": "DeepSeek-V4-Flash 更新",
+        "kind": "ai",
+        "title": "DeepSeek API 升级至 V4-Flash 版本",
         "summary": "DeepSeek-V4-Flash 正式版 API 上线公测，API 调用方式不变，模型名设置为 deepseek-v4-flash 即可使用最新版本。",
-        "audience": "DeepSeek API 用户。",
-        "action": "打开这条记录附带的官方发布说明，查看当时的使用条件。"
+        "audience": "开发者",
+        "action": "可在官方发布说明中查看详情。",
+        "basis": "DeepSeek-V4-Flash 更新。DeepSeek-V4-Flash 正式版 API 上线公测，API 调用方式不变，模型名设置为 deepseek-v4-flash 即可使用最新版本。",
+        "format": 4
       },
       "attempts": 0,
       "nextTry": 0,
