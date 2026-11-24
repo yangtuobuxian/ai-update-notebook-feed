@@ -1,4 +1,52 @@
 {
+  "claude-v2.1.331": {
+    "title": "终端里也能检查 Claude API 是否可达",
+    "summary": "Claude Code 的诊断命令新增 API 连通性检查，可显示 HTTP 状态、连接错误或跳过检查的原因。",
+    "audience": "使用 Claude Code 排查连接问题的人。",
+    "action": "在终端运行 claude doctor，查看 API 连通性一栏。"
+  },
+  "claude-v2.1.330": {
+    "title": "企业账号登录后自动应用组织设置",
+    "summary": "由 Anthropic 企业管理控制台管理的组织可以登录 Claude Code。登录后会应用组织设置，并使用组织配置的云服务或网关。",
+    "audience": "使用企业管理控制台账号的 Claude Code 用户。",
+    "action": "在终端运行 claude auth login，用所在组织的账号登录。"
+  },
+  "claude-v2.1.329": {
+    "title": "用 /tasks 查看当前会话的定时任务",
+    "summary": "任务列表现在会显示本次会话的定时任务、循环、目标和分支对话。在列表里可选择要停止的项目并确认。",
+    "audience": "在 Claude Code 会话里使用任务或循环的人。",
+    "action": "输入 /tasks，找到当前会话正在运行的任务。"
+  },
+  "claude-v2.1.328": {
+    "title": "诊断页会提示遥测数据可能丢失",
+    "summary": "当 OpenTelemetry 导出器缺少接收地址时，Claude Code 会在状态页和诊断命令里显示提醒。",
+    "audience": "为 Claude Code 配置 OpenTelemetry 的团队。",
+    "action": "打开 /status 或运行 claude doctor，检查导出器是否设置了接收地址。"
+  },
+  "ollama-v0.40.18": {
+    "title": "Ollama 加快 Inkling 2 在 Metal 上的推理",
+    "summary": "这次更新调整了 Inkling 2 在 Metal 上的预填充、解码和草稿轮次。官方发布页列出了对应改动。",
+    "audience": "通过 Ollama 在 Metal 上运行 Inkling 2 的用户。",
+    "action": "更新到 0.40.18，用同一段输入对照升级前后的生成速度。"
+  },
+  "ollama-v0.40.17": {
+    "title": "用 Ollama 在本地运行 Inkling 2 Mini",
+    "summary": "Thinking Machines 的 Inkling 2 Mini 支持文本、图片和工具调用。Ollama 的发布说明称，该模型在 Mac 上约需 20 GB 内存。",
+    "audience": "希望在本地试用 Inkling 2 Mini 的 Ollama 用户。",
+    "action": "在终端运行 ollama run inkling-2-mini，首次使用时等待模型下载。"
+  },
+  "ollama-v0.40.16": {
+    "title": "Ollama 加入编程模型 Ripple Preview",
+    "summary": "Ricursive Intelligence 的 Ripple Preview 是面向编程任务的 65B 稠密模型，已支持通过 Ollama 运行。",
+    "audience": "打算用 Ollama 试用 Ripple Preview 的开发者。",
+    "action": "在终端运行 ollama run ripple-preview。"
+  },
+  "ollama-v0.40.15": {
+    "title": "在 Ollama 中运行小米 MiMo V2.6",
+    "summary": "Ollama 新增对小米 MiMo V2.6 的支持。这是一个面向编程与智能体工作流的 9B 模型。",
+    "audience": "想在本机试用 MiMo V2.6 的 Ollama 用户。",
+    "action": "在终端运行 ollama run mimo-v2.6。"
+  },
   "codex-rust-v0.172.0": {
     "title": "终端斜杠命令支持 Tab 补全",
     "summary": "不用记全命令参数。输入前几个字母，按 Tab 就能补全支持的命令。",

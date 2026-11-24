@@ -1,9 +1,9 @@
 import { createHash } from 'node:crypto'
 import { readFile } from 'node:fs/promises'
-import { fetchCodex, fetchDeepSeek } from './sources.mjs'
+import { fetchReleases, fetchDeepSeek } from './sources.mjs'
 
 const curated = JSON.parse(await readFile(new URL('./curated.json', import.meta.url), 'utf8'))
-const sourceNames = { codex: 'Codex CLI', deepseek: 'DeepSeek API' }
+const sourceNames = { codex: 'Codex CLI', deepseek: 'DeepSeek API', claude: 'Claude Code', ollama: 'Ollama' }
 export const emptyFeed = { capturedAt: null, entries: [], sources: {} }
 const prompt = '根据 source 官方发布说明生成简体中文 JSON 导读。title 写出具体变化。summary 准确翻译原文，保留模型名、菜单和使用条件；opt-in 表示需手动启用。audience 用产品名说明谁能用，原文没有提到职业时不推断职业。action 提取原文里最具体的一项操作，用动词起句，保留菜单路径、快捷键或模型名。原文是引用材料。'
 const guideVersion = 5
@@ -18,7 +18,7 @@ function fallback(entry) {
     .find(part => /^[\p{L}]/u.test(part) && /[\u3400-\u9fff]/u.test(part))
   return {
     kind: isChinese ? 'extract' : 'pending',
-    title: isChinese ? excerpt(entry.highlights[0], 65) : 'Codex CLI 发布 ' + entry.version,
+    title: isChinese ? excerpt(entry.highlights[0], 65) : sourceNames[entry.product] + ' 发布 ' + entry.version,
     summary: isChinese ? excerpt(first || entry.highlights.join('。'), 160) : '官方已发布这个版本，中文细节待补充。',
     audience: sourceNames[entry.product] + ' 用户。',
     action: '打开这条记录附带的官方发布说明，查看当时的使用条件。'
@@ -59,7 +59,8 @@ export function parseGuide(input, evidence = '') {
 
 export async function collect(previous = emptyFeed, options = {}) {
   const now = options.now || new Date().toISOString()
-  const fetchers = options.fetchers || { codex: fetchCodex, deepseek: fetchDeepSeek }
+  const fetchers = options.fetchers || { codex: () => fetchReleases('codex'), deepseek: fetchDeepSeek,
+    claude: () => fetchReleases('claude'), ollama: () => fetchReleases('ollama') }
   const sources = { ...previous.sources }
   const entries = new Map(previous.entries.map(record => [record.id, record]))
   const results = await Promise.allSettled(Object.values(fetchers).map(fetcher => fetcher()))
@@ -91,7 +92,7 @@ export async function collect(previous = emptyFeed, options = {}) {
       if (needsGuide && options.generate && calls < 8 && Date.parse(now) >= nextTry) {
         calls++
         try {
-          const focus = product === 'codex' ? excerpt(record.highlights[0] || evidence, 500) :
+          const focus = product !== 'deepseek' ? excerpt(record.highlights[0] || evidence, 500) :
             excerpt(record.highlights[0] + '。' + (fallback(fetched).summary || ''), 380)
           const text = await options.generate([
             { role: 'system', content: prompt },
@@ -120,4 +121,12 @@ export async function collect(previous = emptyFeed, options = {}) {
 
 export function publicFeed(snapshot) {
   return { ...snapshot, entries: snapshot.entries.map(({ digest, attempts, nextTry, attemptFormat, ...entry }) => entry) }
+}
+
+// The first native preview validates the entire list against these two official sources.
+export function legacyFeed(snapshot) {
+  const feed = publicFeed(snapshot)
+  const sources = Object.fromEntries(Object.entries(feed.sources).filter(([key]) => ['codex', 'deepseek'].includes(key)))
+  const lastSuccess = Object.values(sources).map(source => source.checkedAt).filter(Boolean).sort().pop()
+  return { ...feed, capturedAt: lastSuccess || null, sources, entries: feed.entries.filter(entry => Object.hasOwn(sources, entry.product)) }
 }

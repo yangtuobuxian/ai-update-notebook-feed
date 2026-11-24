@@ -1,4 +1,4 @@
-import { collect, publicFeed } from './pipeline.mjs'
+import { collect, publicFeed, legacyFeed } from './pipeline.mjs'
 import { startRunnerModel, stopRunnerModel } from './runner-model.mjs'
 import { readFile, writeFile, rename, mkdir, rm } from 'node:fs/promises'
 import { randomUUID } from 'node:crypto'
@@ -50,8 +50,10 @@ try {
 console.log('已保存 ' + snapshot.entries.length + ' 条，新增 ' + (snapshot.entries.length - previous.entries.length) + ' 条')
 const site = path.join(root, 'site')
 await mkdir(site, { recursive: true })
-const published = JSON.stringify(publicFeed(snapshot)) + '\n'
-await writeFile(path.join(site, 'feed.json'), published)
-await writeFile(path.join(root, 'feed.json'), published)
-await writeFile(path.join(site, 'index.html'), '<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>更新簿</title><h1>更新簿</h1><p>Codex CLI 与 DeepSeek API 的官方更新及中文导读。</p><a href="./feed.json">读取更新列表（JSON）</a></html>')
-if (!successes) throw new Error('两个来源均未成功，继续保留上次发布的数据')
+for (const [name, feed] of [['edition.json', publicFeed(snapshot)], ['feed.json', legacyFeed(snapshot)]]) {
+  const published = JSON.stringify(feed) + '\n'
+  await writeFile(path.join(site, name), published)
+  await writeFile(path.join(root, name), published)
+}
+await writeFile(path.join(site, 'index.html'), '<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>更新簿</title><h1>更新簿</h1><p>AI 产品官方更新与中文导读</p><a href="./edition.json">读取全部更新（JSON）</a></html>')
+if (!successes) throw new Error('所有来源均未成功，继续保留上次发布的数据')

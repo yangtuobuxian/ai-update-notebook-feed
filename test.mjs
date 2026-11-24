@@ -1,6 +1,6 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
-import { collect, emptyFeed, parseGuide, publicFeed } from './pipeline.mjs'
+import { collect, emptyFeed, legacyFeed, parseGuide, publicFeed } from './pipeline.mjs'
 
 const t0 = '2026-01-01T00:00:00.000Z'
 const later = '2026-01-01T01:00:00.000Z'
@@ -14,6 +14,19 @@ const deep = entry('deepseek-example', { product: 'deepseek', version: '', highl
   evidence: '此版本改进模型的中文回答。', url: 'https://api-docs.deepseek.com/zh-cn/updates/#example' })
 const fetchers = entries => ({ codex: async () => entries, deepseek: async () => [deep] })
 const generator = async () => JSON.stringify(cn)
+
+test('新版收录其他产品时，旧版订阅仍只收到已支持的来源和成功时间', async () => {
+  const original = await collect(emptyFeed, { now: t0, fetchers: fetchers([entry('test-1')]) })
+  const newer = await collect(original.snapshot, { now: later, fetchers: {
+    codex: async () => [], deepseek: async () => [], claude: async () => [entry('test-claude', { product: 'claude' })]
+  } })
+  assert.equal(publicFeed(newer.snapshot).entries.length, 3)
+  assert.equal(newer.snapshot.entries.find(item => item.product === 'claude').guide.title, 'Claude Code 发布 1.0.0')
+  const old = legacyFeed(newer.snapshot)
+  assert.equal(old.capturedAt, t0)
+  assert.deepEqual(Object.keys(old.sources).sort(), ['codex', 'deepseek'])
+  assert.deepEqual(old.entries.map(item => item.product).sort(), ['codex', 'deepseek'])
+})
 
 test('重复采集不重复生成，同一发布被修改后会重写导读并保留首次收录时间', async () => {
   const original = entry('test-1')

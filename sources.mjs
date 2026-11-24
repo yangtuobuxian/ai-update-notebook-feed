@@ -1,9 +1,13 @@
 const deepseekPage = 'https://api-docs.deepseek.com/zh-cn/updates/'
-const releaseApi = 'https://api.github.com/repos/openai/codex/releases'
+const githubSources = {
+  codex: { repo: 'openai/codex', tag: /^rust-v(\d+\.\d+\.\d+)$/ },
+  claude: { repo: 'anthropics/claude-code', tag: /^v(\d+\.\d+\.\d+)$/ },
+  ollama: { repo: 'ollama/ollama', tag: /^v(\d+\.\d+\.\d+)$/ }
+}
 
 async function request(url) {
   const headers = { 'User-Agent': 'AI-Update-Notebook/1.0' }
-  if (url.startsWith(releaseApi + '?') && process.env.GH_RELEASES_TOKEN) {
+  if (new URL(url).origin === 'https://api.github.com' && process.env.GH_RELEASES_TOKEN) {
     headers.Authorization = 'Bearer ' + process.env.GH_RELEASES_TOKEN
   }
   const response = await fetch(url, {
@@ -23,7 +27,9 @@ function plainText(markdown) {
     .trim()
 }
 
-export async function fetchCodex() {
+export async function fetchReleases(product) {
+  const { repo, tag: tagPattern } = githubSources[product]
+  const releaseApi = 'https://api.github.com/repos/' + repo + '/releases'
   const entries = []
   for (let page = 1; page <= 10 && entries.length < 6; page++) {
     const response = await request(releaseApi + '?per_page=10&page=' + page)
@@ -31,13 +37,21 @@ export async function fetchCodex() {
     if (!Array.isArray(releases)) throw new Error('GitHub 发布列表格式异常')
     for (const release of releases) {
       const tag = release.tag_name
-      if (release.draft || release.prerelease || !/^rust-v\d+\.\d+\.\d+$/.test(tag)) continue
-      if (entries.some(entry => entry.id === 'codex-' + tag)) continue
-      const points = (release.body || '').split(/\r?\n/)
+      const version = tagPattern.exec(tag)?.[1]
+      if (release.draft || release.prerelease || !version) continue
+      if (entries.some(entry => entry.id === product + '-' + tag)) continue
+      const body = release.body || ''
+      const points = body.split(/\r?\n/)
         .filter(line => /^[-*] /.test(line))
         .slice(0, 3).map(plainText)
+      // Model announcements can start with a heading and a paragraph before the maintenance bullets.
+      if (product === 'ollama') {
+        const opening = body.split(/^##\s+(?:What's Changed|Full Changelog)/im)[0]
+        const lead = opening.split(/\r?\n/).find(line => /^\[?\p{L}/u.test(line.trim()))
+        if (lead) points.unshift(plainText(lead))
+      }
       entries.push({
-        id: 'codex-' + tag, product: 'codex', version: tag.slice(6),
+        id: product + '-' + tag, product, version,
         date: new Date(Date.parse(release.published_at) + 8 * 3600000).toISOString().slice(0, 10),
         publishedAt: release.published_at,
         url: release.html_url, highlights: points,
