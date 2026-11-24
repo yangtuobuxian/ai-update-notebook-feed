@@ -1,14 +1,14 @@
 {
-  "capturedAt": "2026-11-24T12:17:41.281Z",
-  "checkedAt": "2026-11-24T12:17:41.281Z",
+  "capturedAt": "2026-11-24T12:21:34.354Z",
+  "checkedAt": "2026-11-24T12:21:34.354Z",
   "sources": {
     "codex": {
       "available": true,
-      "checkedAt": "2026-11-24T12:17:41.281Z"
+      "checkedAt": "2026-11-24T12:21:34.354Z"
     },
     "deepseek": {
       "available": true,
-      "checkedAt": "2026-11-24T12:17:41.281Z"
+      "checkedAt": "2026-11-24T12:21:34.354Z"
     }
   },
   "entries": [
@@ -37,7 +37,7 @@
       },
       "attempts": 0,
       "nextTry": 0,
-      "attemptFormat": 4
+      "attemptFormat": 5
     },
     {
       "id": "codex-rust-v0.171.0",
@@ -62,7 +62,7 @@
       },
       "attempts": 0,
       "nextTry": 0,
-      "attemptFormat": 4
+      "attemptFormat": 5
     },
     {
       "id": "codex-rust-v0.170.0",
@@ -87,7 +87,7 @@
       },
       "attempts": 0,
       "nextTry": 0,
-      "attemptFormat": 4
+      "attemptFormat": 5
     },
     {
       "id": "codex-rust-v0.169.1",
@@ -108,7 +108,7 @@
       },
       "attempts": 0,
       "nextTry": 0,
-      "attemptFormat": 4
+      "attemptFormat": 5
     },
     {
       "id": "codex-rust-v0.169.0",
@@ -125,15 +125,17 @@
       "firstSeenAt": "2026-11-24T11:52:19.653Z",
       "digest": "dd098349a12ecf3353cc4d41753f9629a6bd76ee86f3f58b6f06d3bd5281fabb",
       "guide": {
-        "kind": "pending",
-        "title": "Codex CLI 发布 0.169.0",
-        "summary": "官方已发布这个版本，中文细节待补充。",
-        "audience": "Codex CLI 用户。",
-        "action": "打开这条记录附带的官方发布说明，查看当时的使用条件。"
+        "kind": "ai",
+        "title": "支持多标签侧边聊天窗口",
+        "summary": "这项功能需手动启用。终端工作区支持多个侧边聊天标签。可通过键盘或鼠标在它们之间切换，并在重启后重新打开保存的本地侧边聊天。",
+        "audience": "Codex CLI 用户",
+        "action": "切换侧边聊天标签：使用键盘或鼠标在多个侧边聊天标签之间切换。",
+        "basis": "The opt-in terminal workspace supports multiple side-chat tabs. Switch between them with the keyboard or mouse, and reopen saved local side chats after restarting Codex.",
+        "format": 5
       },
-      "attempts": 1,
-      "nextTry": 1795526261281,
-      "attemptFormat": 4
+      "attempts": 0,
+      "nextTry": 0,
+      "attemptFormat": 5
     },
     {
       "id": "codex-rust-v0.168.0",
@@ -151,16 +153,16 @@
       "digest": "4d4b9626bf9c2345f5eaee655ee52f2d4496d8d9d059481915de605f29d16acb",
       "guide": {
         "kind": "ai",
-        "title": "Codex CLI 新增模型提供商管理功能",
-        "summary": "用户可以在 Codex CLI 的 Sessions 菜单下查看和选择模型提供商，并为新的聊天设置默认的模型提供商。",
-        "audience": "开发者和系统管理员",
-        "action": "可在官方发布说明中查看详情。",
+        "title": "可浏览模型提供者并设置默认模型",
+        "summary": "在Sessions → Model providers中浏览模型提供者，并为新的聊天选择默认模型。",
+        "audience": "Codex CLI用户",
+        "action": "在Sessions → Model providers中浏览模型提供者，并为新的聊天选择默认模型。",
         "basis": "Browse model providers under Sessions → Model providers and choose the default for new chats.",
-        "format": 4
+        "format": 5
       },
       "attempts": 0,
       "nextTry": 0,
-      "attemptFormat": 4
+      "attemptFormat": 5
     },
     {
       "id": "deepseek-2026-11-13",
@@ -183,7 +185,7 @@
       },
       "attempts": 0,
       "nextTry": 0,
-      "attemptFormat": 4
+      "attemptFormat": 5
     },
     {
       "id": "deepseek-2026-10-17",
@@ -207,7 +209,7 @@
       },
       "attempts": 0,
       "nextTry": 0,
-      "attemptFormat": 4
+      "attemptFormat": 5
     },
     {
       "id": "deepseek-2026-09-10",
@@ -230,7 +232,7 @@
       },
       "attempts": 0,
       "nextTry": 0,
-      "attemptFormat": 4
+      "attemptFormat": 5
     },
     {
       "id": "deepseek-2026-08-21",
@@ -253,7 +255,7 @@
       },
       "attempts": 0,
       "nextTry": 0,
-      "attemptFormat": 4
+      "attemptFormat": 5
     },
     {
       "id": "deepseek-2026-08-13",
@@ -269,16 +271,16 @@
       "digest": "0abddf28e52dee1980b00ed225e9d2748ee069bf20280736ac62d8c1c798f4ab",
       "guide": {
         "kind": "ai",
-        "title": "DeepSeek API 升级至 V4-Pro 版本",
-        "summary": "DeepSeek-V4-Pro 正式版已同步在 APP、网页端和 API 更新上线。API 调用方式不变，模型名设置为 deepseek-v4-pro，即可使用最新版本。",
-        "audience": "开发者",
-        "action": "可在官方发布说明中查看详情。",
+        "title": "DeepSeek-V4-Pro 正式版上线",
+        "summary": "DeepSeek-V4-Pro 正式版已同步在 APP、网页端和 API 上线。API 调用方式不变，模型名设置为 deepseek-v4-pro，即可使用最新版本。",
+        "audience": "DeepSeek API 用户",
+        "action": "在 API 调用中将模型名设置为 deepseek-v4-pro 以使用最新版本。",
         "basis": "DeepSeek-V4-Pro 更新。DeepSeek-V4-Pro 正式版已同步在 APP、网页端和 API 更新上线。API 调用方式不变，模型名设置为 deepseek-v4-pro，即可使用最新版本。",
-        "format": 4
+        "format": 5
       },
       "attempts": 0,
       "nextTry": 0,
-      "attemptFormat": 4
+      "attemptFormat": 5
     },
     {
       "id": "deepseek-2026-07-31",
@@ -294,16 +296,16 @@
       "digest": "68a49c5d04ea61308bf9c1a26e525025547d26ba78a2aec96b6c335310d8ce94",
       "guide": {
         "kind": "ai",
-        "title": "DeepSeek API 升级至 V4-Flash 版本",
+        "title": "DeepSeek API 升级至 DeepSeek-V4-Flash 版本",
         "summary": "DeepSeek-V4-Flash 正式版 API 上线公测，API 调用方式不变，模型名设置为 deepseek-v4-flash 即可使用最新版本。",
-        "audience": "开发者",
-        "action": "可在官方发布说明中查看详情。",
+        "audience": "DeepSeek API 用户",
+        "action": "将模型名设置为 deepseek-v4-flash 以使用最新版本的 DeepSeek-V4-Flash API。",
         "basis": "DeepSeek-V4-Flash 更新。DeepSeek-V4-Flash 正式版 API 上线公测，API 调用方式不变，模型名设置为 deepseek-v4-flash 即可使用最新版本。",
-        "format": 4
+        "format": 5
       },
       "attempts": 0,
       "nextTry": 0,
-      "attemptFormat": 4
+      "attemptFormat": 5
     }
   ]
 }
