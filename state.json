@@ -152,11 +152,11 @@
       "firstSeenAt": "2026-11-24T11:52:19.653Z",
       "digest": "4d4b9626bf9c2345f5eaee655ee52f2d4496d8d9d059481915de605f29d16acb",
       "guide": {
-        "kind": "ai",
-        "title": "可浏览模型提供者并设置默认模型",
-        "summary": "在Sessions → Model providers中浏览模型提供者，并为新的聊天选择默认模型。",
-        "audience": "Codex CLI用户",
-        "action": "在Sessions → Model providers中浏览模型提供者，并为新的聊天选择默认模型。",
+        "kind": "reviewed",
+        "title": "可以为新会话选择默认模型提供商",
+        "summary": "Codex CLI 的会话菜单增加了模型提供商列表，可以指定新聊天默认使用哪家提供商。",
+        "audience": "需要切换模型提供商的 Codex CLI 用户。",
+        "action": "进入 Sessions → Model providers，选择新聊天要使用的默认提供商。",
         "basis": "Browse model providers under Sessions → Model providers and choose the default for new chats.",
         "format": 5
       },
