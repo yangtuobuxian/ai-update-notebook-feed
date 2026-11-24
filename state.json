@@ -1,14 +1,14 @@
 {
-  "capturedAt": "2026-11-24T12:21:34.354Z",
-  "checkedAt": "2026-11-24T12:21:34.354Z",
+  "capturedAt": "2026-11-24T12:30:56.239Z",
+  "checkedAt": "2026-11-24T12:30:56.239Z",
   "sources": {
     "codex": {
       "available": true,
-      "checkedAt": "2026-11-24T12:21:34.354Z"
+      "checkedAt": "2026-11-24T12:30:56.239Z"
     },
     "deepseek": {
       "available": true,
-      "checkedAt": "2026-11-24T12:21:34.354Z"
+      "checkedAt": "2026-11-24T12:30:56.239Z"
     }
   },
   "entries": [

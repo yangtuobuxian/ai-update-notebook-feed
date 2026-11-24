@@ -50,12 +50,8 @@ try {
 console.log('已保存 ' + snapshot.entries.length + ' 条，新增 ' + (snapshot.entries.length - previous.entries.length) + ' 条')
 const site = path.join(root, 'site')
 await mkdir(site, { recursive: true })
-await writeFile(path.join(site, 'feed.json'), JSON.stringify(publicFeed(snapshot)) + '\n')
+const published = JSON.stringify(publicFeed(snapshot)) + '\n'
+await writeFile(path.join(site, 'feed.json'), published)
+await writeFile(path.join(root, 'feed.json'), published)
 await writeFile(path.join(site, 'index.html'), '<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>更新簿</title><h1>更新簿</h1><p>Codex CLI 与 DeepSeek API 的官方更新及中文导读。</p><a href="./feed.json">读取更新列表（JSON）</a></html>')
-if (process.env.GITHUB_OUTPUT) {
-  const changed = JSON.stringify(previous.entries) !== JSON.stringify(snapshot.entries) ||
-    Object.keys(snapshot.sources).some(key => previous.sources[key]?.available !== snapshot.sources[key].available)
-  const { appendFile } = await import('node:fs/promises')
-  await appendFile(process.env.GITHUB_OUTPUT, 'changed=' + changed + '\n')
-}
 if (!successes) throw new Error('两个来源均未成功，继续保留上次发布的数据')
