@@ -1,0 +1,56 @@
+name: 更新官方日志和中文导读
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 * * * *'
+
+concurrency:
+  group: notebook-feed
+  cancel-in-progress: false
+
+permissions: {}
+
+jobs:
+  collect:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 23
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node --test test.mjs
+      - id: sync
+        run: node run.mjs
+        env:
+          GH_RELEASES_TOKEN: ${{ github.token }}
+          NOTEBOOK_RUNNER_MODEL: '1'
+      - if: steps.sync.outputs.changed == 'true'
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- state.json
+          git commit -m '更新官方记录与中文导读'
+          git push origin HEAD:main
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+          retention-days: 1
+
+  publish:
+    needs: collect
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.publish.outputs.page_url }}
+    steps:
+      - name: 发布只读数据
+        id: publish
+        uses: actions/deploy-pages@v4

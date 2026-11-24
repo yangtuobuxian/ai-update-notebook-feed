@@ -1,0 +1,303 @@
+{
+  "capturedAt": "2026-11-24T12:16:11.778Z",
+  "checkedAt": "2026-11-24T12:16:11.778Z",
+  "sources": {
+    "codex": {
+      "available": true,
+      "checkedAt": "2026-11-24T12:16:11.778Z"
+    },
+    "deepseek": {
+      "available": true,
+      "checkedAt": "2026-11-24T12:16:11.778Z"
+    }
+  },
+  "entries": [
+    {
+      "id": "codex-rust-v0.172.0",
+      "product": "codex",
+      "version": "0.172.0",
+      "date": "2026-11-24",
+      "publishedAt": "2026-11-24T00:03:55Z",
+      "url": "https://github.com/openai/codex/releases/tag/rust-v0.172.0",
+      "highlights": [
+        "Follow thread links from search results and transcripts to open saved conversations and nested agents in the terminal.",
+        "Press Tab to complete arguments for supported slash commands. For example, /mcp lo completes to /mcp login.",
+        "Jump between task groups in the agent command center with Shift+Up and Shift+Down."
+      ],
+      "firstSeenAt": "2026-11-24T11:35:59.658Z",
+      "digest": "d5de0950b79bee698c14b24d63e34e034e350ec4722a44d8b6ba663d00117d58",
+      "guide": {
+        "title": "终端斜杠命令支持 Tab 补全",
+        "summary": "不用记全命令参数。输入前几个字母，按 Tab 就能补全支持的命令。",
+        "audience": "使用 Codex CLI 0.172.0 的终端用户。",
+        "action": "在终端打开 Codex，输入 /mcp lo，再按 Tab。输入框会补全为 /mcp login。",
+        "sample": "/mcp lo",
+        "result": "/mcp login",
+        "kind": "editor"
+      },
+      "attempts": 0,
+      "nextTry": 0,
+      "attemptFormat": 4
+    },
+    {
+      "id": "codex-rust-v0.171.0",
+      "product": "codex",
+      "version": "0.171.0",
+      "date": "2026-11-20",
+      "publishedAt": "2026-11-20T00:44:47Z",
+      "url": "https://github.com/openai/codex/releases/tag/rust-v0.171.0",
+      "highlights": [
+        "Added GPT-6.2 Sol and Astra to model catalogs, with Sol as the default catalog selection.",
+        "Enabled the TUI workspace by default, with searchable document previews, image previews, and subagent transcripts alongside the main conversation.",
+        "Added configurable undo and redo shortcuts to the non-Vim prompt composer, including restoration of attachments and large pastes."
+      ],
+      "firstSeenAt": "2026-11-24T11:35:59.658Z",
+      "digest": "38b373fd794775bd2ae6348ae96a1f4d748c31907b986ec4f196c3b61423ac02",
+      "guide": {
+        "title": "在终端对话旁预览文件和图片",
+        "summary": "终端工作区默认开启，可以在主对话旁查看文件、图片和子代理的对话记录。",
+        "audience": "使用 Codex CLI 0.171.0 终端界面的用户。",
+        "action": "打开终端工作区，在包含文档或图片的对话中查看侧边预览。此版本也将 GPT-6.2 Sol 和 Astra 加入了模型目录。",
+        "kind": "editor"
+      },
+      "attempts": 0,
+      "nextTry": 0,
+      "attemptFormat": 4
+    },
+    {
+      "id": "codex-rust-v0.170.0",
+      "product": "codex",
+      "version": "0.170.0",
+      "date": "2026-11-18",
+      "publishedAt": "2026-11-18T03:40:48Z",
+      "url": "https://github.com/openai/codex/releases/tag/rust-v0.170.0",
+      "highlights": [
+        "Added WebRTC negotiation for realtime voice calls in the TUI.",
+        "Added automatically refreshed authentication headers for OpenTelemetry HTTP exporters.",
+        "Added experimental support for using identically named MCP servers across environments."
+      ],
+      "firstSeenAt": "2026-11-24T11:35:59.658Z",
+      "digest": "45f005dc603b9897c334c45cff992e446e8dcdabced7c781c72a528b7d63c0ea",
+      "guide": {
+        "title": "终端实时语音加入 WebRTC 协商",
+        "summary": "新版更新了实时语音的连接方式，也为跨环境使用同名 MCP 服务加入了实验支持。",
+        "audience": "使用 Codex CLI 实时语音或多个 MCP 环境的开发者。",
+        "action": "先核对终端版本；使用实时语音时，可在官方发布说明里查看这次连接层的变化。",
+        "kind": "editor"
+      },
+      "attempts": 0,
+      "nextTry": 0,
+      "attemptFormat": 4
+    },
+    {
+      "id": "codex-rust-v0.169.1",
+      "product": "codex",
+      "version": "0.169.1",
+      "date": "2026-11-18",
+      "publishedAt": "2026-11-17T22:21:10Z",
+      "url": "https://github.com/openai/codex/releases/tag/rust-v0.169.1",
+      "highlights": [],
+      "firstSeenAt": "2026-11-24T11:35:59.658Z",
+      "digest": "4b918fdfe2f6acfa139475b158aff9eab623f7a8bb357832234809ebc4841b3c",
+      "guide": {
+        "title": "Codex CLI 发布 0.169.1",
+        "summary": "这个补丁版本提供了代码差异链接，发布页没有列出具体的功能变化。",
+        "audience": "需要核对 Codex CLI 补丁版本的用户。",
+        "action": "打开官方发布页中的 Full Changelog，查看与 0.169.0 的代码差异。",
+        "kind": "editor"
+      },
+      "attempts": 0,
+      "nextTry": 0,
+      "attemptFormat": 4
+    },
+    {
+      "id": "codex-rust-v0.169.0",
+      "product": "codex",
+      "version": "0.169.0",
+      "date": "2026-11-13",
+      "publishedAt": "2026-11-13T08:37:05Z",
+      "url": "https://github.com/openai/codex/releases/tag/rust-v0.169.0",
+      "highlights": [
+        "The opt-in terminal workspace supports multiple side-chat tabs. Switch between them with the keyboard or mouse, and reopen saved local side chats after restarting Codex.",
+        "Search older tasks from the agent command center by name, prompt preview, or working directory.",
+        "Turn on Collapse turn details in the full-screen transcript to fold completed activity beneath each prompt while keeping answers visible and tool output searchable."
+      ],
+      "firstSeenAt": "2026-11-24T11:52:19.653Z",
+      "digest": "dd098349a12ecf3353cc4d41753f9629a6bd76ee86f3f58b6f06d3bd5281fabb",
+      "guide": {
+        "kind": "pending",
+        "title": "Codex CLI 发布 0.169.0",
+        "summary": "官方已发布这个版本，中文细节待补充。",
+        "audience": "Codex CLI 用户。",
+        "action": "打开这条记录附带的官方发布说明，查看当时的使用条件。"
+      },
+      "attempts": 0,
+      "nextTry": 0,
+      "attemptFormat": 4
+    },
+    {
+      "id": "codex-rust-v0.168.0",
+      "product": "codex",
+      "version": "0.168.0",
+      "date": "2026-11-13",
+      "publishedAt": "2026-11-13T03:54:29Z",
+      "url": "https://github.com/openai/codex/releases/tag/rust-v0.168.0",
+      "highlights": [
+        "Browse model providers under Sessions → Model providers and choose the default for new chats.",
+        "Enable features.tui_workspace to view a side conversation beside the main chat. Drag the divider to resize the panes or press leader z to zoom the focused pane.",
+        "Attach recordings when using an audio-capable model. Codex skips confirmed rejected recordings on later turns and uses clip duration to keep more short recordings in context."
+      ],
+      "firstSeenAt": "2026-11-24T11:52:19.653Z",
+      "digest": "4d4b9626bf9c2345f5eaee655ee52f2d4496d8d9d059481915de605f29d16acb",
+      "guide": {
+        "kind": "pending",
+        "title": "Codex CLI 发布 0.168.0",
+        "summary": "官方已发布这个版本，中文细节待补充。",
+        "audience": "Codex CLI 用户。",
+        "action": "打开这条记录附带的官方发布说明，查看当时的使用条件。"
+      },
+      "attempts": 0,
+      "nextTry": 0,
+      "attemptFormat": 4
+    },
+    {
+      "id": "deepseek-2026-11-13",
+      "product": "deepseek",
+      "version": "",
+      "date": "2026-11-13",
+      "publishedAt": null,
+      "url": "https://api-docs.deepseek.com/zh-cn/updates/#%E6%97%B6%E9%97%B4-2026-11-13",
+      "highlights": [
+        "发布全家桶应用 API"
+      ],
+      "firstSeenAt": "2026-11-24T11:35:59.658Z",
+      "digest": "3cd46d74b42df97a1cfc59447c31c6124b128ff40907ed66fd1ba93f417a61bf",
+      "guide": {
+        "title": "把联网搜索和文件输入接入自己的应用",
+        "summary": "deepseek-flash 开放联网搜索、文件输入和链接阅读，工具调用由服务端处理。",
+        "audience": "通过 Messages、Responses 或 Chat Completions 接入 deepseek-flash 的开发者。",
+        "action": "在请求中启用 deepseek_web_search，再提一个需要联网的问题。开启其他工具的方式可在原文的指南中查看。",
+        "kind": "editor"
+      },
+      "attempts": 0,
+      "nextTry": 0,
+      "attemptFormat": 4
+    },
+    {
+      "id": "deepseek-2026-10-17",
+      "product": "deepseek",
+      "version": "",
+      "date": "2026-10-17",
+      "publishedAt": null,
+      "url": "https://api-docs.deepseek.com/zh-cn/updates/#%E6%97%B6%E9%97%B4-2026-10-17",
+      "highlights": [
+        "开放自研搜索 API",
+        "DeepSeek-V4.1-Flash-1017 更新"
+      ],
+      "firstSeenAt": "2026-11-24T11:35:59.658Z",
+      "digest": "77abfbbf7e4fd2d7611ef0377bcd32c68d21f1b896841362bdd810326f6f3634",
+      "guide": {
+        "title": "DeepSeek 开放自研搜索 API",
+        "summary": "开发者可以接入网页搜索。当天，V4.1 Flash 也升级到了 1017 版本。",
+        "audience": "需要在应用中加入搜索，或已调用 deepseek-flash 的开发者。",
+        "action": "从原文进入「网页搜索与抓取指南」查看调用方法。已有的 deepseek-flash 调用可继续使用原模型名。",
+        "kind": "editor"
+      },
+      "attempts": 0,
+      "nextTry": 0,
+      "attemptFormat": 4
+    },
+    {
+      "id": "deepseek-2026-09-10",
+      "product": "deepseek",
+      "version": "",
+      "date": "2026-09-10",
+      "publishedAt": null,
+      "url": "https://api-docs.deepseek.com/zh-cn/updates/#%E6%97%B6%E9%97%B4-2026-09-10",
+      "highlights": [
+        "DeepSeek-V4.1-Flash 发布"
+      ],
+      "firstSeenAt": "2026-11-24T11:35:59.658Z",
+      "digest": "8904dfddc970a9713c5dee3cf511d787e24433b66ecfa29061ed88716074f36e",
+      "guide": {
+        "title": "V4.1 Flash 加入原生视觉理解",
+        "summary": "DeepSeek 发布 V4.1 Flash，模型可以理解图像输入。",
+        "audience": "跟踪 DeepSeek 多模态能力的开发者。",
+        "action": "在原文中查看视觉任务的测试说明与当时的模型能力。",
+        "kind": "editor"
+      },
+      "attempts": 0,
+      "nextTry": 0,
+      "attemptFormat": 4
+    },
+    {
+      "id": "deepseek-2026-08-21",
+      "product": "deepseek",
+      "version": "",
+      "date": "2026-08-21",
+      "publishedAt": null,
+      "url": "https://api-docs.deepseek.com/zh-cn/updates/#%E6%97%B6%E9%97%B4-2026-08-21",
+      "highlights": [
+        "DeepSeek-V4-Flash-Vision-Exp 发布"
+      ],
+      "firstSeenAt": "2026-11-24T11:35:59.658Z",
+      "digest": "0fff525cc9f6498757aa97332372b7a0f5ab4bbfe8f2ba12b02b59609b09820f",
+      "guide": {
+        "title": "DeepSeek 开放实验视觉模型",
+        "summary": "V4 Flash Vision Exp 作为实验模型上线 API 平台。",
+        "audience": "关注视觉模型实验版本的 API 开发者。",
+        "action": "该条记录保留发布时的模型名 deepseek-v4-flash-vision-exp。现在调用前，请核对官方最新模型列表。",
+        "kind": "editor"
+      },
+      "attempts": 0,
+      "nextTry": 0,
+      "attemptFormat": 4
+    },
+    {
+      "id": "deepseek-2026-08-13",
+      "product": "deepseek",
+      "version": "",
+      "date": "2026-08-13",
+      "publishedAt": null,
+      "url": "https://api-docs.deepseek.com/zh-cn/updates/#%E6%97%B6%E9%97%B4-2026-08-13",
+      "highlights": [
+        "DeepSeek-V4-Pro 更新"
+      ],
+      "firstSeenAt": "2026-11-24T11:52:19.653Z",
+      "digest": "0abddf28e52dee1980b00ed225e9d2748ee069bf20280736ac62d8c1c798f4ab",
+      "guide": {
+        "kind": "extract",
+        "title": "DeepSeek-V4-Pro 更新",
+        "summary": "DeepSeek-V4-Pro 正式版已同步在 APP、网页端和 API 更新上线。API 调用方式不变，模型名设置为 deepseek-v4-pro，即可使用最新版本。",
+        "audience": "DeepSeek API 用户。",
+        "action": "打开这条记录附带的官方发布说明，查看当时的使用条件。"
+      },
+      "attempts": 0,
+      "nextTry": 0,
+      "attemptFormat": 4
+    },
+    {
+      "id": "deepseek-2026-07-31",
+      "product": "deepseek",
+      "version": "",
+      "date": "2026-07-31",
+      "publishedAt": null,
+      "url": "https://api-docs.deepseek.com/zh-cn/updates/#%E6%97%B6%E9%97%B4-2026-07-31",
+      "highlights": [
+        "DeepSeek-V4-Flash 更新"
+      ],
+      "firstSeenAt": "2026-11-24T11:52:19.653Z",
+      "digest": "68a49c5d04ea61308bf9c1a26e525025547d26ba78a2aec96b6c335310d8ce94",
+      "guide": {
+        "kind": "extract",
+        "title": "DeepSeek-V4-Flash 更新",
+        "summary": "DeepSeek-V4-Flash 正式版 API 上线公测，API 调用方式不变，模型名设置为 deepseek-v4-flash 即可使用最新版本。",
+        "audience": "DeepSeek API 用户。",
+        "action": "打开这条记录附带的官方发布说明，查看当时的使用条件。"
+      },
+      "attempts": 0,
+      "nextTry": 0,
+      "attemptFormat": 4
+    }
+  ]
+}
