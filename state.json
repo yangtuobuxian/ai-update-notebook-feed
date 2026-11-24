@@ -1,17 +1,50 @@
 {
-  "capturedAt": "2026-11-24T12:31:21.296Z",
-  "checkedAt": "2026-11-24T12:31:21.296Z",
+  "capturedAt": "2026-11-24T12:47:34.177Z",
+  "checkedAt": "2026-11-24T12:47:34.177Z",
   "sources": {
     "codex": {
       "available": true,
-      "checkedAt": "2026-11-24T12:31:21.296Z"
+      "checkedAt": "2026-11-24T12:47:34.177Z"
     },
     "deepseek": {
       "available": true,
-      "checkedAt": "2026-11-24T12:31:21.296Z"
+      "checkedAt": "2026-11-24T12:47:34.177Z"
+    },
+    "claude": {
+      "available": true,
+      "checkedAt": "2026-11-24T12:47:34.177Z"
+    },
+    "ollama": {
+      "available": true,
+      "checkedAt": "2026-11-24T12:47:34.177Z"
     }
   },
   "entries": [
+    {
+      "id": "ollama-v0.40.18",
+      "product": "ollama",
+      "version": "0.40.18",
+      "date": "2026-11-24",
+      "publishedAt": "2026-11-24T04:18:13Z",
+      "url": "https://github.com/ollama/ollama/releases/tag/v0.40.18",
+      "highlights": [
+        "mlx: fuse Inkling residual mixing on Metal by @dhiltgen in https://github.com/ollama/ollama/pull/19808",
+        "mlxrunner: share tensor helpers and model setup across architectures by @jaingaurav in https://github.com/ollama/ollama/pull/19805",
+        "llama.cpp: version bump b12651 + remove jetpack5 support by @pdevine in https://github.com/ollama/ollama/pull/19865"
+      ],
+      "firstSeenAt": "2026-11-24T12:47:34.177Z",
+      "digest": "28dcc31140accfe074b01c223a81137904f377890da0ed89cd0613c5ac814f91",
+      "guide": {
+        "title": "Ollama 加快 Inkling 2 在 Metal 上的推理",
+        "summary": "这次更新调整了 Inkling 2 在 Metal 上的预填充、解码和草稿轮次。官方发布页列出了对应改动。",
+        "audience": "通过 Ollama 在 Metal 上运行 Inkling 2 的用户。",
+        "action": "更新到 0.40.18，用同一段输入对照升级前后的生成速度。",
+        "kind": "editor"
+      },
+      "attempts": 0,
+      "nextTry": 0,
+      "attemptFormat": 5
+    },
     {
       "id": "codex-rust-v0.172.0",
       "product": "codex",
@@ -33,6 +66,56 @@
         "action": "在终端打开 Codex，输入 /mcp lo，再按 Tab。输入框会补全为 /mcp login。",
         "sample": "/mcp lo",
         "result": "/mcp login",
+        "kind": "editor"
+      },
+      "attempts": 0,
+      "nextTry": 0,
+      "attemptFormat": 5
+    },
+    {
+      "id": "claude-v2.1.331",
+      "product": "claude",
+      "version": "2.1.331",
+      "date": "2026-11-24",
+      "publishedAt": "2026-11-23T21:34:41Z",
+      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.331",
+      "highlights": [
+        "Added Code Mode support in terminal sessions on Amazon Bedrock, Google Cloud's Agent Platform, Microsoft Foundry and Claude Platform on AWS",
+        "Added oidc.groups_jsonpath to the Claude apps gateway, to read groups from the matching entries of a list of objects with a small subset of JSONPath (RFC 9535)",
+        "Added an API connectivity section to claude doctor that reports whether the API can be reached, with the HTTP status or the error, or says why it wasn't tested"
+      ],
+      "firstSeenAt": "2026-11-24T12:47:34.177Z",
+      "digest": "651b15a63f5a15ba96695a9404b16777d86a42fb02a6ed6a131c9c22162bf3e0",
+      "guide": {
+        "title": "终端里也能检查 Claude API 是否可达",
+        "summary": "Claude Code 的诊断命令新增 API 连通性检查，可显示 HTTP 状态、连接错误或跳过检查的原因。",
+        "audience": "使用 Claude Code 排查连接问题的人。",
+        "action": "在终端运行 claude doctor，查看 API 连通性一栏。",
+        "kind": "editor"
+      },
+      "attempts": 0,
+      "nextTry": 0,
+      "attemptFormat": 5
+    },
+    {
+      "id": "claude-v2.1.330",
+      "product": "claude",
+      "version": "2.1.330",
+      "date": "2026-11-21",
+      "publishedAt": "2026-11-20T22:32:56Z",
+      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.330",
+      "highlights": [
+        "Added sign-in to organizations managed in Anthropic's Enterprise Admin Console: after claude auth login, Claude Code applies the organization's settings and uses its cloud provider or gateway",
+        "Added easel, a built-in mod that draws charts when asked and under MCP metrics results, on Pro, Max and, where available, Team and Enterprise on macOS and Linux; turn automatic charts off in /config",
+        "Added CLAUDE_CODE_FULL_SIGN_IN_LINK=1 to print the full sign-in link, if the short one shows an error or a script reads values from it"
+      ],
+      "firstSeenAt": "2026-11-24T12:47:34.177Z",
+      "digest": "497133a48c41652ff6ea8c556cc1eae7814e41f837ab0ca64a2db6d76db74a70",
+      "guide": {
+        "title": "企业账号登录后自动应用组织设置",
+        "summary": "由 Anthropic 企业管理控制台管理的组织可以登录 Claude Code。登录后会应用组织设置，并使用组织配置的云服务或网关。",
+        "audience": "使用企业管理控制台账号的 Claude Code 用户。",
+        "action": "在终端运行 claude auth login，用所在组织的账号登录。",
         "kind": "editor"
       },
       "attempts": 0,
@@ -65,6 +148,56 @@
       "attemptFormat": 5
     },
     {
+      "id": "claude-v2.1.329",
+      "product": "claude",
+      "version": "2.1.329",
+      "date": "2026-11-20",
+      "publishedAt": "2026-11-19T22:14:41Z",
+      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.329",
+      "highlights": [
+        "Added a trust dialog warning that says where a folder's hooks are declared",
+        "Added a warning in the conversation, in Claude Desktop and other non-interactive hosts, when hooks in managed settings fail to load",
+        "Added this session's scheduled tasks, /loop wakeups, the goal and this conversation's forks to /tasks; x stops one after asking"
+      ],
+      "firstSeenAt": "2026-11-24T12:47:34.177Z",
+      "digest": "d6fb7f5fee27131c33a1cb29c8d295da8ac8704c79deba4bf7bcf033cc80a66d",
+      "guide": {
+        "title": "用 /tasks 查看当前会话的定时任务",
+        "summary": "任务列表现在会显示本次会话的定时任务、循环、目标和分支对话。在列表里可选择要停止的项目并确认。",
+        "audience": "在 Claude Code 会话里使用任务或循环的人。",
+        "action": "输入 /tasks，找到当前会话正在运行的任务。",
+        "kind": "editor"
+      },
+      "attempts": 0,
+      "nextTry": 0,
+      "attemptFormat": 5
+    },
+    {
+      "id": "claude-v2.1.328",
+      "product": "claude",
+      "version": "2.1.328",
+      "date": "2026-11-19",
+      "publishedAt": "2026-11-19T01:14:04Z",
+      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.328",
+      "highlights": [
+        "Added auto mode for Claude Opus 4.6 and Sonnet 4.6 on Amazon Bedrock, Google Cloud's Agent Platform, Microsoft Foundry and Claude apps gateway; interactive sessions with no permission mode start in it",
+        "Added \"onFailure\": \"block\" for mcp_tool hooks, as for command and HTTP hooks: a hook whose call fails blocks the action",
+        "Added a warning when a message from a session that skips permission prompts may be held and dropped by a cloud session"
+      ],
+      "firstSeenAt": "2026-11-24T12:47:34.177Z",
+      "digest": "94dd4fe4a3872c3361c5fe9f2c35f51ba792e8ae597aab635fcfbbf87d47438e",
+      "guide": {
+        "title": "诊断页会提示遥测数据可能丢失",
+        "summary": "当 OpenTelemetry 导出器缺少接收地址时，Claude Code 会在状态页和诊断命令里显示提醒。",
+        "audience": "为 Claude Code 配置 OpenTelemetry 的团队。",
+        "action": "打开 /status 或运行 claude doctor，检查导出器是否设置了接收地址。",
+        "kind": "editor"
+      },
+      "attempts": 0,
+      "nextTry": 0,
+      "attemptFormat": 5
+    },
+    {
       "id": "codex-rust-v0.170.0",
       "product": "codex",
       "version": "0.170.0",
@@ -90,6 +223,33 @@
       "attemptFormat": 5
     },
     {
+      "id": "claude-v2.1.327",
+      "product": "claude",
+      "version": "2.1.327",
+      "date": "2026-11-18",
+      "publishedAt": "2026-11-17T23:17:45Z",
+      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.327",
+      "highlights": [
+        "Added a confirmation before /install-github-app changes a repository",
+        "Added claude mcp add-json <name> - to read the server's JSON from stdin, so tokens can stay off the command line; not available inside a Claude Code session",
+        "Added a line when a resumed session's earlier messages can't be loaded"
+      ],
+      "firstSeenAt": "2026-11-24T12:47:34.177Z",
+      "digest": "3ac740c4e8ae843a830d9a1f831cc5b1e95ebf7645e8d53995db29e7d99b1832",
+      "guide": {
+        "kind": "ai",
+        "title": "新增安装 GitHub 应用前的确认步骤",
+        "summary": "在更改仓库时，会添加一个确认步骤以确保用户明确了解更改内容。",
+        "audience": "Claude Code 用户",
+        "action": "在安装 GitHub 应用前，系统会提示用户确认更改仓库的操作。",
+        "basis": "Added a confirmation before /install-github-app changes a repository",
+        "format": 5
+      },
+      "attempts": 0,
+      "nextTry": 0,
+      "attemptFormat": 5
+    },
+    {
       "id": "codex-rust-v0.169.1",
       "product": "codex",
       "version": "0.169.1",
@@ -105,6 +265,33 @@
         "audience": "需要核对 Codex CLI 补丁版本的用户。",
         "action": "打开官方发布页中的 Full Changelog，查看与 0.169.0 的代码差异。",
         "kind": "editor"
+      },
+      "attempts": 0,
+      "nextTry": 0,
+      "attemptFormat": 5
+    },
+    {
+      "id": "claude-v2.1.326",
+      "product": "claude",
+      "version": "2.1.326",
+      "date": "2026-11-17",
+      "publishedAt": "2026-11-16T22:11:05Z",
+      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.326",
+      "highlights": [
+        "Added support for turning on Code Mode while agent teams are enabled; if you already turned it on, sessions with teams on now start in Code Mode",
+        "Added a startup warning when an --allowedTools, --disallowedTools or --tools value has an entry that doesn't look like a complete rule",
+        "Added a message explaining why MCP servers stop loading when an administrator adds managed-mcp.json during a session"
+      ],
+      "firstSeenAt": "2026-11-24T12:47:34.177Z",
+      "digest": "b043315183203226d7d062da724a62ca06ce72c205376d5d50fbd9e0cab65739",
+      "guide": {
+        "kind": "ai",
+        "title": "支持在Agent团队启用时开启Code模式",
+        "summary": "新增支持在Agent团队启用时开启Code模式；如果已开启，当前会话在团队启用时将自动进入Code模式。",
+        "audience": "Claude Code用户",
+        "action": "在Agent团队启用时，通过设置开启Code模式",
+        "basis": "Added support for turning on Code Mode while agent teams are enabled; if you already turned it on, sessions with teams on now start in Code Mode",
+        "format": 5
       },
       "attempts": 0,
       "nextTry": 0,
@@ -182,6 +369,133 @@
         "audience": "通过 Messages、Responses 或 Chat Completions 接入 deepseek-flash 的开发者。",
         "action": "在请求中启用 deepseek_web_search，再提一个需要联网的问题。开启其他工具的方式可在原文的指南中查看。",
         "kind": "editor"
+      },
+      "attempts": 0,
+      "nextTry": 0,
+      "attemptFormat": 5
+    },
+    {
+      "id": "ollama-v0.40.17",
+      "product": "ollama",
+      "version": "0.40.17",
+      "date": "2026-11-11",
+      "publishedAt": "2026-11-10T22:25:00Z",
+      "url": "https://github.com/ollama/ollama/releases/tag/v0.40.17",
+      "highlights": [
+        "Inkling 2 Mini from Thinking Machines is a 26B parameter model with 5.4B active.",
+        "ollama launch claude supports Claude Code's deferred tool loading, so MCP tools are loaded when needed instead of all at",
+        "Ollama on Apple silicon now serves multiple requests at once.",
+        "ollama launch opencode sets thinking options from the model's metadata"
+      ],
+      "firstSeenAt": "2026-11-24T12:47:34.177Z",
+      "digest": "47e8c28e04b382c6166a653a87ff1e6e33b1cb5201aa180b8c43c19b3f442de3",
+      "guide": {
+        "title": "用 Ollama 在本地运行 Inkling 2 Mini",
+        "summary": "Thinking Machines 的 Inkling 2 Mini 支持文本、图片和工具调用。Ollama 的发布说明称，该模型在 Mac 上约需 20 GB 内存。",
+        "audience": "希望在本地试用 Inkling 2 Mini 的 Ollama 用户。",
+        "action": "在终端运行 ollama run inkling-2-mini，首次使用时等待模型下载。",
+        "kind": "editor"
+      },
+      "attempts": 0,
+      "nextTry": 0,
+      "attemptFormat": 5
+    },
+    {
+      "id": "ollama-v0.40.16",
+      "product": "ollama",
+      "version": "0.40.16",
+      "date": "2026-11-10",
+      "publishedAt": "2026-11-09T18:21:19Z",
+      "url": "https://github.com/ollama/ollama/releases/tag/v0.40.16",
+      "highlights": [
+        "Ripple Preview from Ricursive Intelligence is a 65B dense model built for agentic coding.",
+        "Qwen3.8 Flash Next uses about 27 GiB less memory on Apple silicon",
+        "ollama launch claude always routes Claude Code to the selected model",
+        "ollama launch explains when a cloud model has been retired"
+      ],
+      "firstSeenAt": "2026-11-24T12:47:34.177Z",
+      "digest": "0658e32d3ff527f21876e4384db565c7166c8c1cdec200985a3980c227e4cb29",
+      "guide": {
+        "title": "Ollama 加入编程模型 Ripple Preview",
+        "summary": "Ricursive Intelligence 的 Ripple Preview 是面向编程任务的 65B 稠密模型，已支持通过 Ollama 运行。",
+        "audience": "打算用 Ollama 试用 Ripple Preview 的开发者。",
+        "action": "在终端运行 ollama run ripple-preview。",
+        "kind": "editor"
+      },
+      "attempts": 0,
+      "nextTry": 0,
+      "attemptFormat": 5
+    },
+    {
+      "id": "ollama-v0.40.15",
+      "product": "ollama",
+      "version": "0.40.15",
+      "date": "2026-11-04",
+      "publishedAt": "2026-11-03T22:52:31Z",
+      "url": "https://github.com/ollama/ollama/releases/tag/v0.40.15",
+      "highlights": [
+        "Xiaomi MiMo's mimo-v2.6, a 9B model built for code and agent workflows, is now supported in Ollama."
+      ],
+      "firstSeenAt": "2026-11-24T12:47:34.177Z",
+      "digest": "a5a232ba786ba0ac8f58fd3de24c8dc361126546fd0f4fc81ee26e58dbac0246",
+      "guide": {
+        "title": "在 Ollama 中运行小米 MiMo V2.6",
+        "summary": "Ollama 新增对小米 MiMo V2.6 的支持。这是一个面向编程与智能体工作流的 9B 模型。",
+        "audience": "想在本机试用 MiMo V2.6 的 Ollama 用户。",
+        "action": "在终端运行 ollama run mimo-v2.6。",
+        "kind": "editor"
+      },
+      "attempts": 0,
+      "nextTry": 0,
+      "attemptFormat": 5
+    },
+    {
+      "id": "ollama-v0.40.14",
+      "product": "ollama",
+      "version": "0.40.14",
+      "date": "2026-11-03",
+      "publishedAt": "2026-11-03T01:40:40Z",
+      "url": "https://github.com/ollama/ollama/releases/tag/v0.40.14",
+      "highlights": [
+        "ollama launch claude now applies the model's output token limit for Claude Code, so cloud models no longer run into the 128k default cap",
+        "Cloud web search responses on /api/chat are now decoded correctly, including compressed responses",
+        "OpenAI-compatible endpoints no longer override a model's packaged sampler defaults — clients that send no temperature/top_p get the model's own values instead of 1.0, matching /api/chat"
+      ],
+      "firstSeenAt": "2026-11-24T12:47:34.177Z",
+      "digest": "879870d47204db66a2264c63733127c68be4d75f60b2ec36dd2dbba75239bdd8",
+      "guide": {
+        "kind": "ai",
+        "title": "Claude Code 模型现在应用输出令牌限制",
+        "summary": "Ollama 的 claude now 功能现在会应用模型的输出令牌限制，因此云模型不再受默认 128k 的限制。",
+        "audience": "Ollama 用户",
+        "action": "启用 claude now 功能以应用 Claude Code 模型的输出令牌限制",
+        "basis": "ollama launch claude now applies the model's output token limit for Claude Code, so cloud models no longer run into the 128k default cap",
+        "format": 5
+      },
+      "attempts": 0,
+      "nextTry": 0,
+      "attemptFormat": 5
+    },
+    {
+      "id": "ollama-v0.40.13",
+      "product": "ollama",
+      "version": "0.40.13",
+      "date": "2026-10-29",
+      "publishedAt": "2026-10-28T19:55:04Z",
+      "url": "https://github.com/ollama/ollama/releases/tag/v0.40.13",
+      "highlights": [
+        "Liquid AI's LFM3 models, including text-to-speech in lfm3-audio and lfm3-omni, now run on Linux and Windows as well as Apple silicon."
+      ],
+      "firstSeenAt": "2026-11-24T12:47:34.177Z",
+      "digest": "db101830a34d0dbb386771d4054de800ff473353b9f7c7306ead4e4e53768471",
+      "guide": {
+        "kind": "ai",
+        "title": "LFM3 模型支持 Linux、Windows 和 Apple Silicon",
+        "summary": "Liquid AI 的 LFM3 模型，包括 lfm3-audio 和 lfm3-omni 的文本转语音功能，现在可以在 Linux、Windows 和 Apple Silicon 上运行。",
+        "audience": "Ollama 用户",
+        "action": "在 Linux、Windows 或 Apple Silicon 上运行 LFM3 模型，包括 lfm3-audio 和 lfm3-omni 的文本转语音功能。",
+        "basis": "Liquid AI's LFM3 models, including text-to-speech in lfm3-audio and lfm3-omni, now run on Linux and Windows as well as Apple silicon.",
+        "format": 5
       },
       "attempts": 0,
       "nextTry": 0,
