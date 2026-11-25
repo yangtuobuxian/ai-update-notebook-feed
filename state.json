@@ -1,25 +1,52 @@
 {
-  "capturedAt": "2026-11-24T23:00:41.437Z",
-  "checkedAt": "2026-11-24T23:00:41.437Z",
+  "capturedAt": "2026-11-25T05:26:16.713Z",
+  "checkedAt": "2026-11-25T05:26:16.713Z",
   "sources": {
     "codex": {
       "available": true,
-      "checkedAt": "2026-11-24T23:00:41.437Z"
+      "checkedAt": "2026-11-25T05:26:16.713Z"
     },
     "deepseek": {
       "available": true,
-      "checkedAt": "2026-11-24T23:00:41.437Z"
+      "checkedAt": "2026-11-25T05:26:16.713Z"
     },
     "claude": {
       "available": true,
-      "checkedAt": "2026-11-24T23:00:41.437Z"
+      "checkedAt": "2026-11-25T05:26:16.713Z"
     },
     "ollama": {
       "available": true,
-      "checkedAt": "2026-11-24T23:00:41.437Z"
+      "checkedAt": "2026-11-25T05:26:16.713Z"
     }
   },
   "entries": [
+    {
+      "id": "claude-v2.1.332",
+      "product": "claude",
+      "version": "2.1.332",
+      "date": "2026-11-25",
+      "publishedAt": "2026-11-25T01:32:14Z",
+      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.332",
+      "highlights": [
+        "Added skills from MCP servers (beta). They show as server:skill in the / menu; other skills keep their names",
+        "Added a PreSkillShellCommand hook event that can refuse a skill or command's inline shell commands as it loads; on 2.1.331 and older, a settings file naming it opens a dialog at start",
+        "Added \"Always deliver\" to the prompt for held messages from other sessions"
+      ],
+      "firstSeenAt": "2026-11-25T05:26:16.713Z",
+      "digest": "4fdc2ff6eafd0b67af4cc3fb9c4fde6711eb6a8271d9fe1b913b12e9941df58d",
+      "guide": {
+        "kind": "ai",
+        "title": "新增MCP服务器技能（Beta版）",
+        "summary": "从MCP服务器添加了新技能（Beta版）。这些技能在菜单中显示为'server:skill'；其他技能保持原名。",
+        "audience": "Claude Code 用户",
+        "action": "在菜单中查看新增的'server:skill'技能",
+        "basis": "Added skills from MCP servers (beta). They show as server:skill in the / menu; other skills keep their names",
+        "format": 5
+      },
+      "attempts": 0,
+      "nextTry": 0,
+      "attemptFormat": 5
+    },
     {
       "id": "ollama-v0.40.18",
       "product": "ollama",
