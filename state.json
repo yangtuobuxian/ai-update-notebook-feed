@@ -1,22 +1,22 @@
 {
-  "capturedAt": "2026-11-25T06:09:24.628Z",
-  "checkedAt": "2026-11-25T06:09:24.628Z",
+  "capturedAt": "2026-11-25T06:27:24.561Z",
+  "checkedAt": "2026-11-25T06:27:24.561Z",
   "sources": {
     "codex": {
       "available": true,
-      "checkedAt": "2026-11-25T06:09:24.628Z"
+      "checkedAt": "2026-11-25T06:27:24.561Z"
     },
     "deepseek": {
       "available": true,
-      "checkedAt": "2026-11-25T06:09:24.628Z"
+      "checkedAt": "2026-11-25T06:27:24.561Z"
     },
     "claude": {
       "available": true,
-      "checkedAt": "2026-11-25T06:09:24.628Z"
+      "checkedAt": "2026-11-25T06:27:24.561Z"
     },
     "ollama": {
       "available": true,
-      "checkedAt": "2026-11-25T06:09:24.628Z"
+      "checkedAt": "2026-11-25T06:27:24.561Z"
     }
   },
   "entries": [
