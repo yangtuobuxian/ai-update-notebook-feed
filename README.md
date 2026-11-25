@@ -1,6 +1,6 @@
-# 更新簿数据源
+# Now in AI 数据源
 
-用微信扫描固定二维码，或直接打开网页，就能读到 AI 产品的官方更新和中文导读。每条记录有发布日期、官方链接和导读来源。[打开更新簿](https://yangtuobuxian.github.io/ai-update-notebook-feed/) · [保存二维码](https://yangtuobuxian.github.io/ai-update-notebook-feed/qr.png)
+用微信扫描固定二维码，或直接打开网页，就能读到 AI 产品的官方更新和中文导读。每条记录有发布日期、官方链接和导读来源。[打开 Now in AI](https://yangtuobuxian.github.io/ai-update-notebook-feed/) · [保存二维码](https://yangtuobuxian.github.io/ai-update-notebook-feed/qr.png)
 
 GitHub Actions 每小时第 17 分钟检查六个官方来源。Codex CLI、Claude Code 和 Ollama 取正式发行版，DeepSeek、智谱 GLM 和 Kimi 取中文更新日志。Kimi 按官方月份收录。新增或修改的记录由 Qwen3-4B 在本次运行的 Ubuntu 机器上生成中文导读。首批收录的部分版本附有与官方说明核对过的导读。模型暂时不可用时，中文来源先展示官方摘录，英文来源显示待补充，后续采集会重试。
 
