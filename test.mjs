@@ -1,6 +1,31 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import { collect, emptyFeed, legacyFeed, parseGuide, publicFeed } from './pipeline.mjs'
+import { parseModelLog } from './sources.mjs'
+
+test('GLM 规范化日期但保留原文锚点，过滤无关发布；Kimi 按月收录并支持没有小标题的月份', () => {
+  const glm = parseModelLog('glm', '**2026-8-19**\r\n\r\nGLM-5.3 上线\r\n* 新版模型支持更长代码。\r\n**2026-08-18**\r\n其他产品上线')
+  assert.equal(glm.length, 1)
+  assert.equal(glm[0].date, '2026-08-19')
+  assert.ok(glm[0].url.endsWith('#2026-8-19'))
+  const kimi = parseModelLog('kimi', '**2026年10月**\n### 新模型上线\n模型支持长文。\n### 批处理\n新增模型。\n**2026年8月**\n* 文件接口升级')
+  assert.deepEqual(kimi.map(record => record.date), ['2026-10', '2026-08'])
+  assert.deepEqual(kimi[0].highlights, ['新模型上线', '批处理'])
+  assert.equal(kimi[1].highlights[0], '文件接口升级')
+  assert.equal(decodeURIComponent(kimi[0].url).split('#')[1], '2026年10月')
+  assert.deepEqual(parseModelLog('kimi', '<html>wrong page</html>'), [])
+})
+
+test('快照满额时仍保留低频模型更新，四来源旧版继续收到兼容记录', async () => {
+  const busy = Array.from({ length: 205 }, (_, i) => entry('release-' + i))
+  const monthly = { ...deep, id: 'kimi-2025-11', product: 'kimi', date: '2025-11' }
+  const { snapshot } = await collect(emptyFeed, { fetchers: { ...fetchers(busy), kimi: async () => [monthly] } })
+  assert.equal(snapshot.entries.length, 200)
+  assert.ok(snapshot.entries.some(item => item.id === monthly.id))
+  const old = legacyFeed(snapshot, ['codex', 'claude', 'deepseek', 'ollama'])
+  assert.equal(old.sources.kimi, undefined)
+  assert.ok(!old.entries.some(item => item.product === 'kimi'))
+})
 
 const t0 = '2026-01-01T00:00:00.000Z'
 const later = '2026-01-01T01:00:00.000Z'

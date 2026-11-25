@@ -1,22 +1,30 @@
 {
-  "capturedAt": "2026-11-25T08:10:29.290Z",
-  "checkedAt": "2026-11-25T08:10:29.290Z",
+  "capturedAt": "2026-11-25T11:13:05.914Z",
+  "checkedAt": "2026-11-25T11:13:05.914Z",
   "sources": {
     "codex": {
       "available": true,
-      "checkedAt": "2026-11-25T08:10:29.290Z"
+      "checkedAt": "2026-11-25T11:13:05.914Z"
     },
     "deepseek": {
       "available": true,
-      "checkedAt": "2026-11-25T08:10:29.290Z"
+      "checkedAt": "2026-11-25T11:13:05.914Z"
     },
     "claude": {
       "available": true,
-      "checkedAt": "2026-11-25T08:10:29.290Z"
+      "checkedAt": "2026-11-25T11:13:05.914Z"
     },
     "ollama": {
       "available": true,
-      "checkedAt": "2026-11-25T08:10:29.290Z"
+      "checkedAt": "2026-11-25T11:13:05.914Z"
+    },
+    "glm": {
+      "available": true,
+      "checkedAt": "2026-11-25T11:13:05.914Z"
+    },
+    "kimi": {
+      "available": true,
+      "checkedAt": "2026-11-25T11:13:05.914Z"
     }
   },
   "entries": [
@@ -553,6 +561,29 @@
       "attemptFormat": 5
     },
     {
+      "id": "kimi-2026-10",
+      "product": "kimi",
+      "date": "2026-10",
+      "version": "",
+      "publishedAt": null,
+      "url": "https://platform.kimi.com/docs/changelog#2026%E5%B9%B410%E6%9C%88",
+      "highlights": [
+        "Batch API 支持 Kimi K3.1 Pro 与 Kimi K3"
+      ],
+      "firstSeenAt": "2026-11-25T11:13:05.914Z",
+      "digest": "7a4b1251942893a4d481e153b53729e9be89d7e8ee75e5130c1c6cde309a7bde",
+      "guide": {
+        "title": "Kimi K3.1 Pro 和 K3 可用于批量推理",
+        "summary": "Batch API 新增两个可选模型。异步批量任务按批量价格计费，这两个模型的缓存写入另计。",
+        "audience": "批量处理文本、可以等待异步结果的 Kimi API 用户。",
+        "action": "在 Batch API 指南里核对模型标识，再提交一小批任务检查输出和费用。",
+        "kind": "editor"
+      },
+      "attempts": 0,
+      "nextTry": 0,
+      "attemptFormat": 5
+    },
+    {
       "id": "deepseek-2026-09-10",
       "product": "deepseek",
       "version": "",
@@ -576,6 +607,54 @@
       "attemptFormat": 5
     },
     {
+      "id": "kimi-2026-09",
+      "product": "kimi",
+      "date": "2026-09",
+      "version": "",
+      "publishedAt": null,
+      "url": "https://platform.kimi.com/docs/changelog#2026%E5%B9%B49%E6%9C%88",
+      "highlights": [
+        "Kimi 托管智能体（Hosted Agents）Beta 上线",
+        "联网搜索 API",
+        "计费方式调整"
+      ],
+      "firstSeenAt": "2026-11-25T11:13:05.914Z",
+      "digest": "1d928b3561387a476a3ac83b3f242f793ee8dbe51f0429da2b439a581f3d04c8",
+      "guide": {
+        "title": "Kimi 开放联网搜索，托管智能体进入企业测试",
+        "summary": "开发者可以通过搜索 API 获取结构化结果。国内已认证企业还可试用托管智能体，由平台管理任务执行和恢复。",
+        "audience": "为应用加入搜索的开发者，以及评估托管智能体的企业团队。",
+        "action": "从官方日志进入联网搜索指南，查看基础与专业搜索接口的区别。",
+        "kind": "editor"
+      },
+      "attempts": 0,
+      "nextTry": 0,
+      "attemptFormat": 5
+    },
+    {
+      "id": "glm-2026-08-26",
+      "product": "glm",
+      "date": "2026-08-26",
+      "version": "",
+      "publishedAt": null,
+      "url": "https://docs.bigmodel.cn/cn/update/new-releases#2026-08-26",
+      "highlights": [
+        "GLM-5.3-Flash 原生多模态模型上线"
+      ],
+      "firstSeenAt": "2026-11-25T11:13:05.914Z",
+      "digest": "348d1bb09810d8e77aab1de24fded15aaa4248a7430b7c210a9524ca663ecff2",
+      "guide": {
+        "title": "GLM-5.3-Flash 可以根据界面反馈修改代码",
+        "summary": "智谱把视觉能力加入 Flash 模型。模型可以查看界面和渲染结果，再据此调整实现。",
+        "audience": "需要把页面截图和代码一起交给 GLM 处理的开发者。",
+        "action": "打开原文中的 GLM-5.3-Flash 模型说明，核对图像输入方式。",
+        "kind": "editor"
+      },
+      "attempts": 0,
+      "nextTry": 0,
+      "attemptFormat": 5
+    },
+    {
       "id": "deepseek-2026-08-21",
       "product": "deepseek",
       "version": "",
@@ -592,6 +671,29 @@
         "summary": "V4 Flash Vision Exp 作为实验模型上线 API 平台。",
         "audience": "关注视觉模型实验版本的 API 开发者。",
         "action": "该条记录保留发布时的模型名 deepseek-v4-flash-vision-exp。现在调用前，请核对官方最新模型列表。",
+        "kind": "editor"
+      },
+      "attempts": 0,
+      "nextTry": 0,
+      "attemptFormat": 5
+    },
+    {
+      "id": "glm-2026-08-19",
+      "product": "glm",
+      "date": "2026-08-19",
+      "version": "",
+      "publishedAt": null,
+      "url": "https://docs.bigmodel.cn/cn/update/new-releases#2026-8-19",
+      "highlights": [
+        "GLM-5.3 新一代旗舰模型上线"
+      ],
+      "firstSeenAt": "2026-11-25T11:13:05.914Z",
+      "digest": "c1c438c5e2ca2ee82976d1766fe76d90645d39376f0d9060cefff39b22146d79",
+      "guide": {
+        "title": "GLM-5.3 发布，智谱公布编程评测结果",
+        "summary": "智谱发布了 GLM-5.3，并在公告中列出了它与 GLM-5.2 的编程基准对比。",
+        "audience": "在已有编程任务上评估 GLM 模型的开发者。",
+        "action": "用同一段代码和测试用例对比两个版本，检查修改结果。",
         "kind": "editor"
       },
       "attempts": 0,
@@ -624,6 +726,30 @@
       "attemptFormat": 5
     },
     {
+      "id": "kimi-2026-08",
+      "product": "kimi",
+      "date": "2026-08",
+      "version": "",
+      "publishedAt": null,
+      "url": "https://platform.kimi.com/docs/changelog#2026%E5%B9%B48%E6%9C%88",
+      "highlights": [
+        "kimi-k2.5 与 moonshot-v1 全系列模型（含 -vision-preview、moonshot-v1-auto）在国内外全平台下线，调用将返回 404 错误，请迁移至 Kimi K3",
+        "Files API 更新：新生成的文件 ID 统一添加 file_ 前缀；提升文档解析效果，优化表格、公式等复杂内容的解析；不再对图片进行 OCR 文本提取，图片理解请使用 purpose=image 上传图片（详见 使用视觉模型）；上传的文件与已有文件同名时，服务端自动为新文件重命名"
+      ],
+      "firstSeenAt": "2026-11-25T11:13:05.914Z",
+      "digest": "2c63b39de3ab92cf8c0c324df3c68a3d44b549c0888e3703a2ed7fbc482d2982",
+      "guide": {
+        "title": "Kimi 下线 K2.5 和 moonshot-v1，调整文件接口",
+        "summary": "调用已下线的模型会返回 404。新上传文件的标识增加了 file_ 前缀，图片理解改走视觉输入。",
+        "audience": "仍使用旧模型名，或自行解析文件标识的 Kimi API 用户。",
+        "action": "检查项目中的旧模型名，以及是否存在假定文件标识格式的逻辑。",
+        "kind": "editor"
+      },
+      "attempts": 0,
+      "nextTry": 0,
+      "attemptFormat": 5
+    },
+    {
       "id": "deepseek-2026-07-31",
       "product": "deepseek",
       "version": "",
@@ -643,6 +769,168 @@
         "action": "将模型名设置为 deepseek-v4-flash 以使用最新版本的 DeepSeek-V4-Flash API。",
         "basis": "DeepSeek-V4-Flash 更新。DeepSeek-V4-Flash 正式版 API 上线公测，API 调用方式不变，模型名设置为 deepseek-v4-flash 即可使用最新版本。",
         "format": 5
+      },
+      "attempts": 0,
+      "nextTry": 0,
+      "attemptFormat": 5
+    },
+    {
+      "id": "kimi-2026-07",
+      "product": "kimi",
+      "date": "2026-07",
+      "version": "",
+      "publishedAt": null,
+      "url": "https://platform.kimi.com/docs/changelog#2026%E5%B9%B47%E6%9C%88",
+      "highlights": [
+        "Kimi K3 上线开放平台 API"
+      ],
+      "firstSeenAt": "2026-11-25T11:13:05.914Z",
+      "digest": "461284cbee18634e925b54a755c6b264c8468fe99934bb3e7220d0aa810a5846",
+      "guide": {
+        "title": "Kimi K3 上线开放平台 API",
+        "summary": "K3 提供百万 token 上下文。同期，新注册用户的可选模型也发生了变化。",
+        "audience": "希望通过 Kimi API 处理长文档或长程编程任务的开发者。",
+        "action": "打开日志中的 Kimi K3 快速开始，核对请求示例里的模型名。",
+        "kind": "editor"
+      },
+      "attempts": 0,
+      "nextTry": 0,
+      "attemptFormat": 5
+    },
+    {
+      "id": "glm-2026-06-16",
+      "product": "glm",
+      "date": "2026-06-16",
+      "version": "",
+      "publishedAt": null,
+      "url": "https://docs.bigmodel.cn/cn/update/new-releases#2026-06-16",
+      "highlights": [
+        "GLM-5.2 新一代旗舰模型上线"
+      ],
+      "firstSeenAt": "2026-11-25T11:13:05.914Z",
+      "digest": "0d26e2192dbd0693f6f97480ab2e089b32d4f448c2b3a02df1565c29c40061e0",
+      "guide": {
+        "title": "GLM-5.2 支持百万级上下文",
+        "summary": "智谱将 GLM-5.2 的上下文扩展到 1M，面向需要结合大量代码和早期约束的长任务。",
+        "audience": "使用 GLM 阅读多文件项目的开发者。",
+        "action": "用同一个多文件问题测试新模型，核对回答是否遵循开头给出的工程约束。",
+        "kind": "editor"
+      },
+      "attempts": 0,
+      "nextTry": 0,
+      "attemptFormat": 5
+    },
+    {
+      "id": "kimi-2026-06",
+      "product": "kimi",
+      "date": "2026-06",
+      "version": "",
+      "publishedAt": null,
+      "url": "https://platform.kimi.com/docs/changelog#2026%E5%B9%B46%E6%9C%88",
+      "highlights": [
+        "支持组织级 API IP 白名单配置，企业安全管控更精细",
+        "Kimi K2.7 Code 正式上线开放平台 API，随后推出高速版"
+      ],
+      "firstSeenAt": "2026-11-25T11:13:05.914Z",
+      "digest": "52a053b0af60fe5fd8d522dfaf4870eaa05fca6de0f02be26168cccf1fa9447b",
+      "guide": {
+        "title": "Kimi K2.7 Code 上线，组织可设置 IP 白名单",
+        "summary": "Kimi 将 K2.7 Code 及其高速版接入开放平台，并给组织提供了 API 来源 IP 限制。",
+        "audience": "使用 Kimi 编程模型的开发者和管理组织密钥的管理员。",
+        "action": "需要限制调用来源时，先核对服务出口 IP，再配置组织白名单。",
+        "kind": "editor"
+      },
+      "attempts": 0,
+      "nextTry": 0,
+      "attemptFormat": 5
+    },
+    {
+      "id": "glm-2026-05-29",
+      "product": "glm",
+      "date": "2026-05-29",
+      "version": "",
+      "publishedAt": null,
+      "url": "https://docs.bigmodel.cn/cn/update/new-releases#2026-05-29",
+      "highlights": [
+        "GLM Coding Plan 团队版上线"
+      ],
+      "firstSeenAt": "2026-11-25T11:13:05.914Z",
+      "digest": "2bf32f8d11babfdd7b497a2e9be3335c30e62974eeaefe1ca8c4a92ea75f1e63",
+      "guide": {
+        "title": "GLM Coding Plan 推出团队订阅",
+        "summary": "团队管理员可以分配席位、设置权限，并集中查看团队用量和账单。",
+        "audience": "为多名成员管理 GLM 编程订阅的团队管理员。",
+        "action": "从公告进入团队版说明，核对席位分配方式和预算设置。",
+        "kind": "editor"
+      },
+      "attempts": 0,
+      "nextTry": 0,
+      "attemptFormat": 5
+    },
+    {
+      "id": "kimi-2026-05",
+      "product": "kimi",
+      "date": "2026-05",
+      "version": "",
+      "publishedAt": null,
+      "url": "https://platform.kimi.com/docs/changelog#2026%E5%B9%B45%E6%9C%88",
+      "highlights": [
+        "kimi-k2 系列模型（含 kimi-k2-0905-preview、kimi-k2-0711-preview、kimi-k2-turbo-preview、kimi-k2-thinking、kimi-k2-thinking-turbo）正式下线，不再维护和支持，请使用最新模型 Kimi K3"
+      ],
+      "firstSeenAt": "2026-11-25T11:13:05.914Z",
+      "digest": "9ebfa3a85658d01cadc935e1f178fa657dcd98f30965ef93109d35ca304972c1",
+      "guide": {
+        "title": "Kimi 停止提供旧款 K2 系列接口",
+        "summary": "此次下线涉及早期 K2 预览、Turbo 和 Thinking 等型号。官方日志列出了受影响的模型标识。",
+        "audience": "在代码或配置中固定使用早期 K2 型号的开发者。",
+        "action": "逐项比对官方下线名单，在测试环境更新模型标识并检查结果。",
+        "kind": "editor"
+      },
+      "attempts": 0,
+      "nextTry": 0,
+      "attemptFormat": 5
+    },
+    {
+      "id": "glm-2026-04-07",
+      "product": "glm",
+      "date": "2026-04-07",
+      "version": "",
+      "publishedAt": null,
+      "url": "https://docs.bigmodel.cn/cn/update/new-releases#2026-04-07",
+      "highlights": [
+        "GLM-5.1 新一代旗舰模型上线"
+      ],
+      "firstSeenAt": "2026-11-25T11:13:05.914Z",
+      "digest": "5e37613188919bca1dfe3382e49c3197179745b2b97215352c507d7919218a7f",
+      "guide": {
+        "title": "GLM-5.1 面向需要持续迭代的编程任务",
+        "summary": "这次更新侧重长时间执行、发现问题后修复，以及交付前的反复验证。",
+        "audience": "使用 GLM 处理多步骤工程任务的开发者。",
+        "action": "选一个带验收测试的工程任务，用测试结果检查模型的最终修改。",
+        "kind": "editor"
+      },
+      "attempts": 0,
+      "nextTry": 0,
+      "attemptFormat": 5
+    },
+    {
+      "id": "glm-2026-04-02",
+      "product": "glm",
+      "date": "2026-04-02",
+      "version": "",
+      "publishedAt": null,
+      "url": "https://docs.bigmodel.cn/cn/update/new-releases#2026-04-02",
+      "highlights": [
+        "GLM-5V-Turbo 多模态 Coding 基座模型上线"
+      ],
+      "firstSeenAt": "2026-11-25T11:13:05.914Z",
+      "digest": "b2c6e14d2a1573e3c413fd895762475fd6b6e8905cc8d2193a57311bb6c8252e",
+      "guide": {
+        "title": "GLM-5V-Turbo 增强图形界面理解",
+        "summary": "这款视觉编程模型增加了截图、画框等工具，能结合界面元素的位置规划后续操作。",
+        "audience": "开发截图理解或界面自动化应用的团队。",
+        "action": "在原文的模型说明中核对截图输入与画框工具的用法。",
+        "kind": "editor"
       },
       "attempts": 0,
       "nextTry": 0,

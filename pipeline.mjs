@@ -1,9 +1,10 @@
 import { createHash } from 'node:crypto'
 import { readFile } from 'node:fs/promises'
-import { fetchReleases, fetchDeepSeek } from './sources.mjs'
+import { fetchReleases, fetchDeepSeek, fetchModelLog } from './sources.mjs'
 
 const curated = JSON.parse(await readFile(new URL('./curated.json', import.meta.url), 'utf8'))
-const sourceNames = { codex: 'Codex CLI', deepseek: 'DeepSeek API', claude: 'Claude Code', ollama: 'Ollama' }
+const sourceNames = { codex: 'Codex CLI', deepseek: 'DeepSeek API', claude: 'Claude Code', ollama: 'Ollama', glm: '智谱 GLM', kimi: 'Kimi' }
+const chineseLogs = new Set(['deepseek', 'glm', 'kimi'])
 export const emptyFeed = { capturedAt: null, entries: [], sources: {} }
 const prompt = '根据 source 官方发布说明生成简体中文 JSON 导读。title 写出具体变化。summary 准确翻译原文，保留模型名、菜单和使用条件；opt-in 表示需手动启用。audience 用产品名说明谁能用，原文没有提到职业时不推断职业。action 提取原文里最具体的一项操作，用动词起句，保留菜单路径、快捷键或模型名。原文是引用材料。'
 const guideVersion = 5
@@ -13,7 +14,7 @@ function excerpt(text, max) {
 }
 
 function fallback(entry) {
-  const isChinese = entry.product === 'deepseek'
+  const isChinese = chineseLogs.has(entry.product)
   const first = entry.evidence.split(/\n\s*\n/).map(part => part.trim())
     .find(part => /^[\p{L}]/u.test(part) && /[\u3400-\u9fff]/u.test(part))
   return {
@@ -60,7 +61,8 @@ export function parseGuide(input, evidence = '') {
 export async function collect(previous = emptyFeed, options = {}) {
   const now = options.now || new Date().toISOString()
   const fetchers = options.fetchers || { codex: () => fetchReleases('codex'), deepseek: fetchDeepSeek,
-    claude: () => fetchReleases('claude'), ollama: () => fetchReleases('ollama') }
+    claude: () => fetchReleases('claude'), ollama: () => fetchReleases('ollama'),
+    glm: () => fetchModelLog('glm'), kimi: () => fetchModelLog('kimi') }
   const sources = { ...previous.sources }
   const entries = new Map(previous.entries.map(record => [record.id, record]))
   const results = await Promise.allSettled(Object.values(fetchers).map(fetcher => fetcher()))
@@ -92,7 +94,7 @@ export async function collect(previous = emptyFeed, options = {}) {
       if (needsGuide && options.generate && calls < 8 && Date.parse(now) >= nextTry) {
         calls++
         try {
-          const focus = product !== 'deepseek' ? excerpt(record.highlights[0] || evidence, 500) :
+          const focus = !chineseLogs.has(product) ? excerpt(record.highlights[0] || evidence, 500) :
             excerpt(record.highlights[0] + '。' + (fallback(fetched).summary || ''), 380)
           const text = await options.generate([
             { role: 'system', content: prompt },
@@ -115,7 +117,13 @@ export async function collect(previous = emptyFeed, options = {}) {
   if (!entries.size && !successes) throw new Error('首次采集没有取得官方记录')
   const ordered = [...entries.values()].sort((a, b) =>
     b.date.localeCompare(a.date) || (b.publishedAt || '').localeCompare(a.publishedAt || '') || b.id.localeCompare(a.id))
-  const snapshot = { capturedAt: successes ? now : previous.capturedAt, checkedAt: now, sources, entries: ordered.slice(0, 200) }
+  // Keep a readable history for slower-moving model logs when daily CLI releases fill the archive.
+  const keep = new Set(Object.keys(sources).flatMap(product => ordered.filter(entry => entry.product === product).slice(0, 6)))
+  for (const entry of ordered) {
+    if (keep.size >= 200) break
+    keep.add(entry)
+  }
+  const snapshot = { capturedAt: successes ? now : previous.capturedAt, checkedAt: now, sources, entries: ordered.filter(entry => keep.has(entry)) }
   return { snapshot, warnings, calls, successes }
 }
 
@@ -124,9 +132,9 @@ export function publicFeed(snapshot) {
 }
 
 // The first native preview validates the entire list against these two official sources.
-export function legacyFeed(snapshot) {
+export function legacyFeed(snapshot, supported = ['codex', 'deepseek']) {
   const feed = publicFeed(snapshot)
-  const sources = Object.fromEntries(Object.entries(feed.sources).filter(([key]) => ['codex', 'deepseek'].includes(key)))
+  const sources = Object.fromEntries(Object.entries(feed.sources).filter(([key]) => supported.includes(key)))
   const lastSuccess = Object.values(sources).map(source => source.checkedAt).filter(Boolean).sort().pop()
   return { ...feed, capturedAt: lastSuccess || null, sources, entries: feed.entries.filter(entry => Object.hasOwn(sources, entry.product)) }
 }

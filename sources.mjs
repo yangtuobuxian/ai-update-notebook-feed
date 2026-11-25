@@ -1,4 +1,8 @@
 const deepseekPage = 'https://api-docs.deepseek.com/zh-cn/updates/'
+const modelLogs = {
+  glm: { page: 'https://docs.bigmodel.cn/cn/update/new-releases', marker: /^\*\*(\d{4})-(\d{1,2})-(\d{1,2})\*\*[ \t]*$/gm },
+  kimi: { page: 'https://platform.kimi.com/docs/changelog', marker: /^\*\*(\d{4})年(\d{1,2})月\*\*[ \t]*$/gm }
+}
 const githubSources = {
   codex: { repo: 'openai/codex', tag: /^rust-v(\d+\.\d+\.\d+)$/ },
   claude: { repo: 'anthropics/claude-code', tag: /^v(\d+\.\d+\.\d+)$/ },
@@ -80,5 +84,36 @@ export async function fetchDeepSeek() {
       evidence: section.trim().slice(0, 4200)
     }
   })
+}
+
+export function parseModelLog(product, markdown) {
+  const { page, marker } = modelLogs[product]
+  const source = markdown.replace(/\r\n?/g, '\n')
+  const sections = [...source.matchAll(marker)]
+  const records = []
+  for (const [i, header] of sections.entries()) {
+    const [, year, month, day] = header
+    const date = [year, month.padStart(2, '0'), ...(day ? [day.padStart(2, '0')] : [])].join('-')
+    if (+month < 1 || +month > 12 || (day && (!Date.parse(date) || new Date(date).toISOString().slice(0, 10) !== date))) continue
+    const body = source.slice(header.index + header[0].length, sections[i + 1]?.index).split(/^##\s/m)[0].trim()
+    const clean = line => plainText(line.replace(/^(?:###\s+|[-*]\s+)/, '').replace(/^[^\p{L}\d]+/u, '').replace(/[<>]/g, ''))
+    const lines = body.split('\n').filter(line => line.trim())
+    const titles = product === 'glm' ? lines.slice(0, 1) : lines.filter(line => /^### /.test(line))
+    const bullets = lines.filter(line => /^[-*] /.test(line))
+    const highlights = (titles.length ? titles : bullets).map(clean).filter(Boolean)
+    if (!highlights.length || (product === 'glm' && !/\bGLM\b/i.test(highlights[0]))) continue
+    const description = (product === 'glm' ? bullets : lines.filter(line => !/^#/.test(line))).map(clean).filter(Boolean)
+    const anchor = day ? [year, month, day].join('-') : year + '年' + month + '月'
+    records.push({ id: product + '-' + date, product, date, version: '', publishedAt: null,
+      url: page + '#' + encodeURIComponent(anchor), highlights,
+      evidence: (description.join('\n\n') || highlights.join('\n\n')).slice(0, 4200) })
+    if (records.length === 6) break
+  }
+  return records
+}
+
+export async function fetchModelLog(product) {
+  const response = await request(modelLogs[product].page + '.md')
+  return parseModelLog(product, await response.text())
 }
 

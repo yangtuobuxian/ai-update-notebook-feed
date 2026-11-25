@@ -50,7 +50,11 @@ try {
 console.log('已保存 ' + snapshot.entries.length + ' 条，新增 ' + (snapshot.entries.length - previous.entries.length) + ' 条')
 const site = path.join(root, 'site')
 await mkdir(site, { recursive: true })
-for (const [name, feed] of [['edition.json', publicFeed(snapshot)], ['feed.json', legacyFeed(snapshot)]]) {
+for (const [name, feed] of [
+  ['edition-v2.json', publicFeed(snapshot)],
+  ['edition.json', legacyFeed(snapshot, ['codex', 'claude', 'deepseek', 'ollama'])],
+  ['feed.json', legacyFeed(snapshot)]
+]) {
   const published = JSON.stringify(feed) + '\n'
   await writeFile(path.join(site, name), published)
   await writeFile(path.join(root, name), published)
