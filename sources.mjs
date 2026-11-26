@@ -1,4 +1,44 @@
+import { createHash } from 'node:crypto'
+
 const deepseekPage = 'https://api-docs.deepseek.com/zh-cn/updates/'
+const publishers = { qwen: 'Qwen', seed: 'ByteDance-Seed', meta: 'meta-llama' }
+const announcements = {
+  seed: [['2026-02-14', 'Seed 2.0 发布 Pro、Lite、Mini 和 Code 四个版本', 'https://seed.bytedance.com/en/blog/seed-2-0-official-launch',
+    '字节跳动 Seed 发布 Seed 2.0 系列，包括 Pro、Lite、Mini 三种通用版本和面向编程的 Code 版本。']],
+  meta: [['2026-07-09', 'Meta 发布 Muse Spark 1.1', 'https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/',
+    'Meta 推出 Muse Spark 1.1，并在发布时开放 Meta Model API 的公开预览。']]
+}
+function cardRecord(product, url, date, title, description, dateBasis) {
+  const key = createHash('sha256').update(url).digest('hex').slice(0, 20)
+  return { id: product + '-' + key, product, url, date, dateBasis, publishedAt: null, version: '',
+    highlights: [title], evidence: description }
+}
+export function modelCardEntries(product, cards) {
+  const org = publishers[product]
+  if (!org || !Array.isArray(cards)) throw new Error('模型卡目录格式异常')
+  const result = []
+  for (const card of cards) {
+    const [owner, name, extra] = String(card.id || '').split('/')
+    if (owner !== org || extra !== undefined || !/^[a-z0-9][a-z0-9._-]{0,130}$/i.test(name || '') ||
+        !['text-generation', 'image-text-to-text', 'any-to-any'].includes(card.pipeline_tag) ||
+        /(?:FP8|GPTQ|AWQ|GGUF|Int4|SpinQuant|QLORA|benchmark|bench$|^Llama-Guard|(?:^|-)base$)/i.test(name) ||
+        !Number.isFinite(Date.parse(card.createdAt))) continue
+    const url = 'https://huggingface.co/' + owner + '/' + name
+    if (result.some(item => item.url === url)) continue
+    const task = { 'text-generation': '文本生成', 'image-text-to-text': '图文输入、文本输出', 'any-to-any': '多模态输入输出' }[card.pipeline_tag]
+    result.push(cardRecord(product, url, card.createdAt.slice(0, 10), name + ' 官方模型卡',
+      owner + ' 的官方模型仓库收录了 ' + name + '，模型卡标注的任务为' + task + '。可在原文查看使用示例和许可条件。', 'card'))
+    if (result.length === 6) break
+  }
+  if (!result.length) throw new Error('未读到官方模型卡')
+  for (const [date, title, url, body] of announcements[product] || []) result.push(cardRecord(product, url, date, title, body, 'release'))
+  return result
+}
+export async function fetchModelCards(product) {
+  const query = new URLSearchParams({ author: publishers[product], sort: 'createdAt', direction: '-1', limit: '100', full: 'true' })
+  const response = await request('https://huggingface.co/api/models?' + query)
+  return modelCardEntries(product, await response.json())
+}
 const modelLogs = {
   glm: { page: 'https://docs.bigmodel.cn/cn/update/new-releases', marker: /^\*\*(\d{4})-(\d{1,2})-(\d{1,2})\*\*[ \t]*$/gm },
   kimi: { page: 'https://platform.kimi.com/docs/changelog', marker: /^\*\*(\d{4})年(\d{1,2})月\*\*[ \t]*$/gm }

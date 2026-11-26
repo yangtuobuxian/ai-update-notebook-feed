@@ -51,7 +51,8 @@ console.log('已保存 ' + snapshot.entries.length + ' 条，新增 ' + (snapsho
 const site = path.join(root, 'site')
 await mkdir(site, { recursive: true })
 for (const [name, feed] of [
-  ['edition-v2.json', publicFeed(snapshot)],
+  ['edition-v3.json', publicFeed(snapshot)],
+  ['edition-v2.json', legacyFeed(snapshot, ['codex', 'claude', 'deepseek', 'ollama', 'glm', 'kimi'])],
   ['edition.json', legacyFeed(snapshot, ['codex', 'claude', 'deepseek', 'ollama'])],
   ['feed.json', legacyFeed(snapshot)]
 ]) {

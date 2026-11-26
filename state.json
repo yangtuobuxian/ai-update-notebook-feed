@@ -1,30 +1,42 @@
 {
-  "capturedAt": "2026-11-25T17:10:49.932Z",
-  "checkedAt": "2026-11-25T17:10:49.932Z",
+  "capturedAt": "2026-11-26T00:05:05.057Z",
+  "checkedAt": "2026-11-26T00:05:05.057Z",
   "sources": {
     "codex": {
       "available": true,
-      "checkedAt": "2026-11-25T17:10:49.932Z"
+      "checkedAt": "2026-11-26T00:05:05.057Z"
     },
     "deepseek": {
       "available": true,
-      "checkedAt": "2026-11-25T17:10:49.932Z"
+      "checkedAt": "2026-11-26T00:05:05.057Z"
     },
     "claude": {
       "available": true,
-      "checkedAt": "2026-11-25T17:10:49.932Z"
+      "checkedAt": "2026-11-26T00:05:05.057Z"
     },
     "ollama": {
       "available": true,
-      "checkedAt": "2026-11-25T17:10:49.932Z"
+      "checkedAt": "2026-11-26T00:05:05.057Z"
     },
     "glm": {
       "available": true,
-      "checkedAt": "2026-11-25T17:10:49.932Z"
+      "checkedAt": "2026-11-26T00:05:05.057Z"
     },
     "kimi": {
       "available": true,
-      "checkedAt": "2026-11-25T17:10:49.932Z"
+      "checkedAt": "2026-11-26T00:05:05.057Z"
+    },
+    "qwen": {
+      "available": true,
+      "checkedAt": "2026-11-26T00:05:05.057Z"
+    },
+    "seed": {
+      "available": true,
+      "checkedAt": "2026-11-26T00:05:05.057Z"
+    },
+    "meta": {
+      "available": true,
+      "checkedAt": "2026-11-26T00:05:05.057Z"
     }
   },
   "entries": [
@@ -462,6 +474,30 @@
       "attemptFormat": 5
     },
     {
+      "id": "seed-f41632de01855704bb5d",
+      "product": "seed",
+      "url": "https://huggingface.co/ByteDance-Seed/Cola2",
+      "date": "2026-11-06",
+      "dateBasis": "card",
+      "publishedAt": null,
+      "version": "",
+      "highlights": [
+        "Cola2 官方模型卡"
+      ],
+      "firstSeenAt": "2026-11-26T00:03:03.317Z",
+      "digest": "f512e231402e4d2647e7d93d759377a457230c58d3f7a852e94516c8718b3ea5",
+      "guide": {
+        "kind": "catalog",
+        "title": "Cola2 官方模型卡",
+        "summary": "ByteDance-Seed 的官方模型仓库收录了 Cola2，模型卡标注的任务为文本生成。可在原文查看使用示例和许可条件。",
+        "audience": "关注字节 Seed 模型的读者。",
+        "action": "打开官方模型卡，核对模型标识、许可和使用示例。"
+      },
+      "attempts": 0,
+      "nextTry": 0,
+      "attemptFormat": 5
+    },
+    {
       "id": "ollama-v0.40.15",
       "product": "ollama",
       "version": "0.40.15",
@@ -632,6 +668,30 @@
       "attemptFormat": 5
     },
     {
+      "id": "qwen-8fa15b72d360726f82c6",
+      "product": "qwen",
+      "url": "https://huggingface.co/Qwen/Qwen-Drive-1.0-4B",
+      "date": "2026-08-27",
+      "dateBasis": "card",
+      "publishedAt": null,
+      "version": "",
+      "highlights": [
+        "Qwen-Drive-1.0-4B 官方模型卡"
+      ],
+      "firstSeenAt": "2026-11-26T00:03:03.317Z",
+      "digest": "f70af2e1c3353a2bbd82f264e82e2ed2b7d6b165edb0aae0d4186f7a2483e3ca",
+      "guide": {
+        "kind": "catalog",
+        "title": "Qwen-Drive-1.0-4B 官方模型卡",
+        "summary": "Qwen 的官方模型仓库收录了 Qwen-Drive-1.0-4B，模型卡标注的任务为图文输入、文本输出。可在原文查看使用示例和许可条件。",
+        "audience": "关注Qwen 模型的读者。",
+        "action": "打开官方模型卡，核对模型标识、许可和使用示例。"
+      },
+      "attempts": 0,
+      "nextTry": 0,
+      "attemptFormat": 5
+    },
+    {
       "id": "glm-2026-08-26",
       "product": "glm",
       "date": "2026-08-26",
@@ -649,6 +709,30 @@
         "audience": "需要把页面截图和代码一起交给 GLM 处理的开发者。",
         "action": "打开原文中的 GLM-5.3-Flash 模型说明，核对图像输入方式。",
         "kind": "editor"
+      },
+      "attempts": 0,
+      "nextTry": 0,
+      "attemptFormat": 5
+    },
+    {
+      "id": "qwen-eb79656c925ccbff0eee",
+      "product": "qwen",
+      "url": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next",
+      "date": "2026-08-24",
+      "dateBasis": "card",
+      "publishedAt": null,
+      "version": "",
+      "highlights": [
+        "Qwen3.8-Flash-Next 官方模型卡"
+      ],
+      "firstSeenAt": "2026-11-26T00:03:03.317Z",
+      "digest": "8e9b233ecc49ac3382727f74ac70890183eb230bc95e01dc600d243cb3a070aa",
+      "guide": {
+        "kind": "catalog",
+        "title": "Qwen3.8-Flash-Next 官方模型卡",
+        "summary": "Qwen 的官方模型仓库收录了 Qwen3.8-Flash-Next，模型卡标注的任务为图文输入、文本输出。可在原文查看使用示例和许可条件。",
+        "audience": "关注Qwen 模型的读者。",
+        "action": "打开官方模型卡，核对模型标识、许可和使用示例。"
       },
       "attempts": 0,
       "nextTry": 0,
@@ -726,6 +810,54 @@
       "attemptFormat": 5
     },
     {
+      "id": "qwen-2bc2cf30ffd56fe14edd",
+      "product": "qwen",
+      "url": "https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B",
+      "date": "2026-08-08",
+      "dateBasis": "card",
+      "publishedAt": null,
+      "version": "",
+      "highlights": [
+        "Qwen3.8-2.4T-A95B 官方模型卡"
+      ],
+      "firstSeenAt": "2026-11-26T00:03:03.317Z",
+      "digest": "820387fb9422755f18da3f1dceb61f9f9cc3f3e1195151f0bcdb7845d03db751",
+      "guide": {
+        "kind": "catalog",
+        "title": "Qwen3.8-2.4T-A95B 官方模型卡",
+        "summary": "Qwen 的官方模型仓库收录了 Qwen3.8-2.4T-A95B，模型卡标注的任务为文本生成。可在原文查看使用示例和许可条件。",
+        "audience": "关注Qwen 模型的读者。",
+        "action": "打开官方模型卡，核对模型标识、许可和使用示例。"
+      },
+      "attempts": 0,
+      "nextTry": 0,
+      "attemptFormat": 5
+    },
+    {
+      "id": "qwen-ca26bca182f697df2bca",
+      "product": "qwen",
+      "url": "https://huggingface.co/Qwen/Qwen3.8-27B",
+      "date": "2026-08-05",
+      "dateBasis": "card",
+      "publishedAt": null,
+      "version": "",
+      "highlights": [
+        "Qwen3.8-27B 官方模型卡"
+      ],
+      "firstSeenAt": "2026-11-26T00:03:03.317Z",
+      "digest": "3431452b8b5ab47e9286bf6ff6a30b65594a7eb6cf65fd51ccc103f3cff2d5fc",
+      "guide": {
+        "kind": "catalog",
+        "title": "Qwen3.8-27B 官方模型卡",
+        "summary": "Qwen 的官方模型仓库收录了 Qwen3.8-27B，模型卡标注的任务为图文输入、文本输出。可在原文查看使用示例和许可条件。",
+        "audience": "关注Qwen 模型的读者。",
+        "action": "打开官方模型卡，核对模型标识、许可和使用示例。"
+      },
+      "attempts": 0,
+      "nextTry": 0,
+      "attemptFormat": 5
+    },
+    {
       "id": "kimi-2026-08",
       "product": "kimi",
       "date": "2026-08",
@@ -775,6 +907,30 @@
       "attemptFormat": 5
     },
     {
+      "id": "meta-f3757a5a40fdb0962beb",
+      "product": "meta",
+      "url": "https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/",
+      "date": "2026-07-09",
+      "dateBasis": "release",
+      "publishedAt": null,
+      "version": "",
+      "highlights": [
+        "Meta 发布 Muse Spark 1.1"
+      ],
+      "firstSeenAt": "2026-11-26T00:03:03.317Z",
+      "digest": "3351f5ba12902df9fc2b996d2224c25d19bd65178a72a2cecf4c4263596c9f6e",
+      "guide": {
+        "kind": "catalog",
+        "title": "Meta 发布 Muse Spark 1.1",
+        "summary": "Meta 推出 Muse Spark 1.1，并在发布时开放 Meta Model API 的公开预览。",
+        "audience": "关注Meta 模型的读者。",
+        "action": "打开官方公告，查看发布版本和体验入口。"
+      },
+      "attempts": 0,
+      "nextTry": 0,
+      "attemptFormat": 5
+    },
+    {
       "id": "kimi-2026-07",
       "product": "kimi",
       "date": "2026-07",
@@ -792,6 +948,30 @@
         "audience": "希望通过 Kimi API 处理长文档或长程编程任务的开发者。",
         "action": "打开日志中的 Kimi K3 快速开始，核对请求示例里的模型名。",
         "kind": "editor"
+      },
+      "attempts": 0,
+      "nextTry": 0,
+      "attemptFormat": 5
+    },
+    {
+      "id": "qwen-722c176a9e44ffdec110",
+      "product": "qwen",
+      "url": "https://huggingface.co/Qwen/Qwen-AgentWorld-35B-A3B",
+      "date": "2026-06-22",
+      "dateBasis": "card",
+      "publishedAt": null,
+      "version": "",
+      "highlights": [
+        "Qwen-AgentWorld-35B-A3B 官方模型卡"
+      ],
+      "firstSeenAt": "2026-11-26T00:03:03.317Z",
+      "digest": "bd1dcb6828949c33d4fe9f8396cc672f6f90554e049cd107eb4451c90539024b",
+      "guide": {
+        "kind": "catalog",
+        "title": "Qwen-AgentWorld-35B-A3B 官方模型卡",
+        "summary": "Qwen 的官方模型仓库收录了 Qwen-AgentWorld-35B-A3B，模型卡标注的任务为文本生成。可在原文查看使用示例和许可条件。",
+        "audience": "关注Qwen 模型的读者。",
+        "action": "打开官方模型卡，核对模型标识、许可和使用示例。"
       },
       "attempts": 0,
       "nextTry": 0,
@@ -868,6 +1048,30 @@
       "attemptFormat": 5
     },
     {
+      "id": "seed-72fe8224b62e074416bf",
+      "product": "seed",
+      "url": "https://huggingface.co/ByteDance-Seed/Cola-DLM",
+      "date": "2026-05-15",
+      "dateBasis": "card",
+      "publishedAt": null,
+      "version": "",
+      "highlights": [
+        "Cola-DLM 官方模型卡"
+      ],
+      "firstSeenAt": "2026-11-26T00:03:03.317Z",
+      "digest": "7531fc17c94fa9134843cc1e72d7e68aeaf658423f8c53297b7da603e2f8425a",
+      "guide": {
+        "kind": "catalog",
+        "title": "Cola-DLM 官方模型卡",
+        "summary": "ByteDance-Seed 的官方模型仓库收录了 Cola-DLM，模型卡标注的任务为文本生成。可在原文查看使用示例和许可条件。",
+        "audience": "关注字节 Seed 模型的读者。",
+        "action": "打开官方模型卡，核对模型标识、许可和使用示例。"
+      },
+      "attempts": 0,
+      "nextTry": 0,
+      "attemptFormat": 5
+    },
+    {
       "id": "kimi-2026-05",
       "product": "kimi",
       "date": "2026-05",
@@ -885,6 +1089,30 @@
         "audience": "在代码或配置中固定使用早期 K2 型号的开发者。",
         "action": "逐项比对官方下线名单，在测试环境更新模型标识并检查结果。",
         "kind": "editor"
+      },
+      "attempts": 0,
+      "nextTry": 0,
+      "attemptFormat": 5
+    },
+    {
+      "id": "qwen-20e9d0e734a8fb4e4f9a",
+      "product": "qwen",
+      "url": "https://huggingface.co/Qwen/Qwen3.6-27B",
+      "date": "2026-04-21",
+      "dateBasis": "card",
+      "publishedAt": null,
+      "version": "",
+      "highlights": [
+        "Qwen3.6-27B 官方模型卡"
+      ],
+      "firstSeenAt": "2026-11-26T00:03:03.317Z",
+      "digest": "b82aa133c8a2d87975e17b0b0f9ac951ce319a766890c342abaf9618aba0c365",
+      "guide": {
+        "kind": "catalog",
+        "title": "Qwen3.6-27B 官方模型卡",
+        "summary": "Qwen 的官方模型仓库收录了 Qwen3.6-27B，模型卡标注的任务为图文输入、文本输出。可在原文查看使用示例和许可条件。",
+        "audience": "关注Qwen 模型的读者。",
+        "action": "打开官方模型卡，核对模型标识、许可和使用示例。"
       },
       "attempts": 0,
       "nextTry": 0,
@@ -931,6 +1159,270 @@
         "audience": "开发截图理解或界面自动化应用的团队。",
         "action": "在原文的模型说明中核对截图输入与画框工具的用法。",
         "kind": "editor"
+      },
+      "attempts": 0,
+      "nextTry": 0,
+      "attemptFormat": 5
+    },
+    {
+      "id": "seed-90620ce33a88f5190c8a",
+      "product": "seed",
+      "url": "https://seed.bytedance.com/en/blog/seed-2-0-official-launch",
+      "date": "2026-02-14",
+      "dateBasis": "release",
+      "publishedAt": null,
+      "version": "",
+      "highlights": [
+        "Seed 2.0 发布 Pro、Lite、Mini 和 Code 四个版本"
+      ],
+      "firstSeenAt": "2026-11-26T00:03:03.317Z",
+      "digest": "e8b44a611bd830d33cda59fb8373722ab0c87786d36a52c33d81873c728a43db",
+      "guide": {
+        "kind": "catalog",
+        "title": "Seed 2.0 发布 Pro、Lite、Mini 和 Code 四个版本",
+        "summary": "字节跳动 Seed 发布 Seed 2.0 系列，包括 Pro、Lite、Mini 三种通用版本和面向编程的 Code 版本。",
+        "audience": "关注字节 Seed 模型的读者。",
+        "action": "打开官方公告，查看发布版本和体验入口。"
+      },
+      "attempts": 0,
+      "nextTry": 0,
+      "attemptFormat": 5
+    },
+    {
+      "id": "seed-4d453a229c7fbca1ae5a",
+      "product": "seed",
+      "url": "https://huggingface.co/ByteDance-Seed/Stable-DiffCoder-8B-Instruct",
+      "date": "2026-01-15",
+      "dateBasis": "card",
+      "publishedAt": null,
+      "version": "",
+      "highlights": [
+        "Stable-DiffCoder-8B-Instruct 官方模型卡"
+      ],
+      "firstSeenAt": "2026-11-26T00:03:03.317Z",
+      "digest": "cb03c47fab41f9532a3914d298889acad41d80df8f22b484e635daa8876451ee",
+      "guide": {
+        "kind": "catalog",
+        "title": "Stable-DiffCoder-8B-Instruct 官方模型卡",
+        "summary": "ByteDance-Seed 的官方模型仓库收录了 Stable-DiffCoder-8B-Instruct，模型卡标注的任务为文本生成。可在原文查看使用示例和许可条件。",
+        "audience": "关注字节 Seed 模型的读者。",
+        "action": "打开官方模型卡，核对模型标识、许可和使用示例。"
+      },
+      "attempts": 0,
+      "nextTry": 0,
+      "attemptFormat": 5
+    },
+    {
+      "id": "seed-7800b4035053aac43d64",
+      "product": "seed",
+      "url": "https://huggingface.co/ByteDance-Seed/AHN-Mamba2-for-Qwen-2.5-Instruct-14B",
+      "date": "2025-10-08",
+      "dateBasis": "card",
+      "publishedAt": null,
+      "version": "",
+      "highlights": [
+        "AHN-Mamba2-for-Qwen-2.5-Instruct-14B 官方模型卡"
+      ],
+      "firstSeenAt": "2026-11-26T00:03:03.317Z",
+      "digest": "6785dec2a4ab055aa8bf9c34d6625917f8603687a9b9a15d5fb0377d0f724012",
+      "guide": {
+        "kind": "catalog",
+        "title": "AHN-Mamba2-for-Qwen-2.5-Instruct-14B 官方模型卡",
+        "summary": "ByteDance-Seed 的官方模型仓库收录了 AHN-Mamba2-for-Qwen-2.5-Instruct-14B，模型卡标注的任务为文本生成。可在原文查看使用示例和许可条件。",
+        "audience": "关注字节 Seed 模型的读者。",
+        "action": "打开官方模型卡，核对模型标识、许可和使用示例。"
+      },
+      "attempts": 0,
+      "nextTry": 0,
+      "attemptFormat": 5
+    },
+    {
+      "id": "seed-775432bf1203c8f2ebeb",
+      "product": "seed",
+      "url": "https://huggingface.co/ByteDance-Seed/AHN-Mamba2-for-Qwen-2.5-Instruct-3B",
+      "date": "2025-10-08",
+      "dateBasis": "card",
+      "publishedAt": null,
+      "version": "",
+      "highlights": [
+        "AHN-Mamba2-for-Qwen-2.5-Instruct-3B 官方模型卡"
+      ],
+      "firstSeenAt": "2026-11-26T00:03:03.317Z",
+      "digest": "35252cb617622d8eed14a0c83881b0813cd1dfe7df22b128e55d10c1d7a85689",
+      "guide": {
+        "kind": "catalog",
+        "title": "AHN-Mamba2-for-Qwen-2.5-Instruct-3B 官方模型卡",
+        "summary": "ByteDance-Seed 的官方模型仓库收录了 AHN-Mamba2-for-Qwen-2.5-Instruct-3B，模型卡标注的任务为文本生成。可在原文查看使用示例和许可条件。",
+        "audience": "关注字节 Seed 模型的读者。",
+        "action": "打开官方模型卡，核对模型标识、许可和使用示例。"
+      },
+      "attempts": 0,
+      "nextTry": 0,
+      "attemptFormat": 5
+    },
+    {
+      "id": "seed-0dfd46818143a7e1b321",
+      "product": "seed",
+      "url": "https://huggingface.co/ByteDance-Seed/AHN-Mamba2-for-Qwen-2.5-Instruct-7B",
+      "date": "2025-10-08",
+      "dateBasis": "card",
+      "publishedAt": null,
+      "version": "",
+      "highlights": [
+        "AHN-Mamba2-for-Qwen-2.5-Instruct-7B 官方模型卡"
+      ],
+      "firstSeenAt": "2026-11-26T00:03:03.317Z",
+      "digest": "cc0a327d88c9f2178975d5b0a8f6fc78e19be4ff395de8831adedc38f9402d48",
+      "guide": {
+        "kind": "catalog",
+        "title": "AHN-Mamba2-for-Qwen-2.5-Instruct-7B 官方模型卡",
+        "summary": "ByteDance-Seed 的官方模型仓库收录了 AHN-Mamba2-for-Qwen-2.5-Instruct-7B，模型卡标注的任务为文本生成。可在原文查看使用示例和许可条件。",
+        "audience": "关注字节 Seed 模型的读者。",
+        "action": "打开官方模型卡，核对模型标识、许可和使用示例。"
+      },
+      "attempts": 0,
+      "nextTry": 0,
+      "attemptFormat": 5
+    },
+    {
+      "id": "meta-c859d1a572377655b7e9",
+      "product": "meta",
+      "url": "https://huggingface.co/meta-llama/Llama-4-Scout-17B-16E",
+      "date": "2025-04-02",
+      "dateBasis": "card",
+      "publishedAt": null,
+      "version": "",
+      "highlights": [
+        "Llama-4-Scout-17B-16E 官方模型卡"
+      ],
+      "firstSeenAt": "2026-11-26T00:03:03.317Z",
+      "digest": "c87857d90be88d451705019c387f8b062a449e98272535ef1bc03b79ff53307e",
+      "guide": {
+        "kind": "catalog",
+        "title": "Llama-4-Scout-17B-16E 官方模型卡",
+        "summary": "meta-llama 的官方模型仓库收录了 Llama-4-Scout-17B-16E，模型卡标注的任务为图文输入、文本输出。可在原文查看使用示例和许可条件。",
+        "audience": "关注Meta 模型的读者。",
+        "action": "打开官方模型卡，核对模型标识、许可和使用示例。"
+      },
+      "attempts": 0,
+      "nextTry": 0,
+      "attemptFormat": 5
+    },
+    {
+      "id": "meta-af90351d4b39af68ba66",
+      "product": "meta",
+      "url": "https://huggingface.co/meta-llama/Llama-4-Maverick-17B-128E",
+      "date": "2025-04-02",
+      "dateBasis": "card",
+      "publishedAt": null,
+      "version": "",
+      "highlights": [
+        "Llama-4-Maverick-17B-128E 官方模型卡"
+      ],
+      "firstSeenAt": "2026-11-26T00:03:03.317Z",
+      "digest": "d3a48133d9df6a7766b8ca7e3e7e6e37cba9e2eb75b068aa0910022f6c3a48cf",
+      "guide": {
+        "kind": "catalog",
+        "title": "Llama-4-Maverick-17B-128E 官方模型卡",
+        "summary": "meta-llama 的官方模型仓库收录了 Llama-4-Maverick-17B-128E，模型卡标注的任务为图文输入、文本输出。可在原文查看使用示例和许可条件。",
+        "audience": "关注Meta 模型的读者。",
+        "action": "打开官方模型卡，核对模型标识、许可和使用示例。"
+      },
+      "attempts": 0,
+      "nextTry": 0,
+      "attemptFormat": 5
+    },
+    {
+      "id": "meta-8cb15ff6ddd4d6a647bb",
+      "product": "meta",
+      "url": "https://huggingface.co/meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "date": "2025-04-02",
+      "dateBasis": "card",
+      "publishedAt": null,
+      "version": "",
+      "highlights": [
+        "Llama-4-Scout-17B-16E-Instruct 官方模型卡"
+      ],
+      "firstSeenAt": "2026-11-26T00:03:03.317Z",
+      "digest": "4934c2a2f23cc100a07205605e10f4f9b4b0287a9174b9e7d050f30d0b709186",
+      "guide": {
+        "kind": "catalog",
+        "title": "Llama-4-Scout-17B-16E-Instruct 官方模型卡",
+        "summary": "meta-llama 的官方模型仓库收录了 Llama-4-Scout-17B-16E-Instruct，模型卡标注的任务为图文输入、文本输出。可在原文查看使用示例和许可条件。",
+        "audience": "关注Meta 模型的读者。",
+        "action": "打开官方模型卡，核对模型标识、许可和使用示例。"
+      },
+      "attempts": 0,
+      "nextTry": 0,
+      "attemptFormat": 5
+    },
+    {
+      "id": "meta-65471a2c7ad581fbc78d",
+      "product": "meta",
+      "url": "https://huggingface.co/meta-llama/Llama-4-Maverick-17B-128E-Instruct",
+      "date": "2025-04-01",
+      "dateBasis": "card",
+      "publishedAt": null,
+      "version": "",
+      "highlights": [
+        "Llama-4-Maverick-17B-128E-Instruct 官方模型卡"
+      ],
+      "firstSeenAt": "2026-11-26T00:03:03.317Z",
+      "digest": "97623b1fa0fc777c8cadab2e20db785d9bb0a668d758900c6a12f6250808c9cb",
+      "guide": {
+        "kind": "catalog",
+        "title": "Llama-4-Maverick-17B-128E-Instruct 官方模型卡",
+        "summary": "meta-llama 的官方模型仓库收录了 Llama-4-Maverick-17B-128E-Instruct，模型卡标注的任务为图文输入、文本输出。可在原文查看使用示例和许可条件。",
+        "audience": "关注Meta 模型的读者。",
+        "action": "打开官方模型卡，核对模型标识、许可和使用示例。"
+      },
+      "attempts": 0,
+      "nextTry": 0,
+      "attemptFormat": 5
+    },
+    {
+      "id": "meta-db2757ad9adbb4dcf930",
+      "product": "meta",
+      "url": "https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct",
+      "date": "2024-11-26",
+      "dateBasis": "card",
+      "publishedAt": null,
+      "version": "",
+      "highlights": [
+        "Llama-3.3-70B-Instruct 官方模型卡"
+      ],
+      "firstSeenAt": "2026-11-26T00:03:03.317Z",
+      "digest": "1f6fce8093321af54e2e2b1ae62a2b98f743148cea8a5a928cb1a15cc9975b3e",
+      "guide": {
+        "kind": "catalog",
+        "title": "Llama-3.3-70B-Instruct 官方模型卡",
+        "summary": "meta-llama 的官方模型仓库收录了 Llama-3.3-70B-Instruct，模型卡标注的任务为文本生成。可在原文查看使用示例和许可条件。",
+        "audience": "关注Meta 模型的读者。",
+        "action": "打开官方模型卡，核对模型标识、许可和使用示例。"
+      },
+      "attempts": 0,
+      "nextTry": 0,
+      "attemptFormat": 5
+    },
+    {
+      "id": "meta-3f908d85029f1ea999d7",
+      "product": "meta",
+      "url": "https://huggingface.co/meta-llama/Llama-3.2-90B-Vision-Instruct",
+      "date": "2024-09-19",
+      "dateBasis": "card",
+      "publishedAt": null,
+      "version": "",
+      "highlights": [
+        "Llama-3.2-90B-Vision-Instruct 官方模型卡"
+      ],
+      "firstSeenAt": "2026-11-26T00:03:03.317Z",
+      "digest": "70a44f5440ed418382771e6df66bde9c6056db255708d9ecc8a64bb0c82fed7a",
+      "guide": {
+        "kind": "catalog",
+        "title": "Llama-3.2-90B-Vision-Instruct 官方模型卡",
+        "summary": "meta-llama 的官方模型仓库收录了 Llama-3.2-90B-Vision-Instruct，模型卡标注的任务为图文输入、文本输出。可在原文查看使用示例和许可条件。",
+        "audience": "关注Meta 模型的读者。",
+        "action": "打开官方模型卡，核对模型标识、许可和使用示例。"
       },
       "attempts": 0,
       "nextTry": 0,

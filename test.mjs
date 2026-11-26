@@ -1,7 +1,16 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import { collect, emptyFeed, legacyFeed, parseGuide, publicFeed } from './pipeline.mjs'
-import { parseModelLog } from './sources.mjs'
+import { parseModelLog, modelCardEntries } from './sources.mjs'
+
+test('新增板块只接收官方账号模型卡，以仓库为稳定标识，卡片创建日期单独标注', () => {
+  const card = { id: 'Qwen/Qwen3.8-27B', pipeline_tag: 'text-generation', createdAt: '2026-08-05T01:00:00Z' }
+  const [one, ...extra] = modelCardEntries('qwen', [card, card, { ...card, id: 'Other/Fake' }, { ...card, id: 'Qwen/Test-FP8' }])
+  assert.equal(extra.length, 0)
+  assert.equal(one.dateBasis, 'card')
+  assert.equal(one.id, modelCardEntries('qwen', [{ ...card, createdAt: '2026-08-06T01:00:00Z' }])[0].id)
+  assert.match(one.url, /^https:\/\/huggingface\.co\/Qwen\/Qwen3\.8-27B$/)
+})
 
 test('GLM 规范化日期但保留原文锚点，过滤无关发布；Kimi 按月收录并支持没有小标题的月份', () => {
   const glm = parseModelLog('glm', '**2026-8-19**\r\n\r\nGLM-5.3 上线\r\n* 新版模型支持更长代码。\r\n**2026-08-18**\r\n其他产品上线')

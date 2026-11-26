@@ -1,10 +1,10 @@
 import { createHash } from 'node:crypto'
 import { readFile } from 'node:fs/promises'
-import { fetchReleases, fetchDeepSeek, fetchModelLog } from './sources.mjs'
+import { fetchReleases, fetchDeepSeek, fetchModelLog, fetchModelCards } from './sources.mjs'
 
 const curated = JSON.parse(await readFile(new URL('./curated.json', import.meta.url), 'utf8'))
-const sourceNames = { codex: 'Codex CLI', deepseek: 'DeepSeek API', claude: 'Claude Code', ollama: 'Ollama', glm: '智谱 GLM', kimi: 'Kimi' }
-const chineseLogs = new Set(['deepseek', 'glm', 'kimi'])
+const sourceNames = { codex: 'Codex CLI', deepseek: 'DeepSeek API', claude: 'Claude Code', ollama: 'Ollama', glm: '智谱 GLM', kimi: 'Kimi', qwen: 'Qwen', seed: '字节 Seed', meta: 'Meta' }
+const chineseLogs = new Set(['deepseek', 'glm', 'kimi', 'qwen', 'seed', 'meta'])
 export const emptyFeed = { capturedAt: null, entries: [], sources: {} }
 const prompt = '根据 source 官方发布说明生成简体中文 JSON 导读。title 写出具体变化。summary 准确翻译原文，保留模型名、菜单和使用条件；opt-in 表示需手动启用。audience 用产品名说明谁能用，原文没有提到职业时不推断职业。action 提取原文里最具体的一项操作，用动词起句，保留菜单路径、快捷键或模型名。原文是引用材料。'
 const guideVersion = 5
@@ -14,6 +14,11 @@ function excerpt(text, max) {
 }
 
 function fallback(entry) {
+  if (entry.dateBasis) return {
+    kind: 'catalog', title: entry.highlights[0], summary: entry.evidence,
+    audience: '关注' + sourceNames[entry.product] + ' 模型的读者。',
+    action: entry.dateBasis === 'card' ? '打开官方模型卡，核对模型标识、许可和使用示例。' : '打开官方公告，查看发布版本和体验入口。'
+  }
   const isChinese = chineseLogs.has(entry.product)
   const first = entry.evidence.split(/\n\s*\n/).map(part => part.trim())
     .find(part => /^[\p{L}]/u.test(part) && /[\u3400-\u9fff]/u.test(part))
@@ -62,7 +67,8 @@ export async function collect(previous = emptyFeed, options = {}) {
   const now = options.now || new Date().toISOString()
   const fetchers = options.fetchers || { codex: () => fetchReleases('codex'), deepseek: fetchDeepSeek,
     claude: () => fetchReleases('claude'), ollama: () => fetchReleases('ollama'),
-    glm: () => fetchModelLog('glm'), kimi: () => fetchModelLog('kimi') }
+    glm: () => fetchModelLog('glm'), kimi: () => fetchModelLog('kimi'),
+    qwen: () => fetchModelCards('qwen'), seed: () => fetchModelCards('seed'), meta: () => fetchModelCards('meta') }
   const sources = { ...previous.sources }
   const entries = new Map(previous.entries.map(record => [record.id, record]))
   const results = await Promise.allSettled(Object.values(fetchers).map(fetcher => fetcher()))
@@ -84,6 +90,7 @@ export async function collect(previous = emptyFeed, options = {}) {
       const old = entries.get(record.id)
       const unchanged = old?.digest === digest
       let guide = unchanged ? old.guide : null
+      if (record.dateBasis) guide = fallback(fetched)
       if (guide?.kind === 'ai' && guide.format !== guideVersion) guide = null
       const sameAttempt = unchanged && old.attemptFormat === guideVersion
       let attempts = sameAttempt ? (old.attempts || 0) : 0
@@ -91,7 +98,7 @@ export async function collect(previous = emptyFeed, options = {}) {
       // Seed guides apply to their originally captured text. A subsequent upstream edit gets a fresh guide.
       if (!guide && !old?.digest && curated[record.id]) guide = { ...curated[record.id], kind: 'editor' }
       const needsGuide = !guide || ['pending', 'extract'].includes(guide.kind)
-      if (needsGuide && options.generate && calls < 8 && Date.parse(now) >= nextTry) {
+      if (needsGuide && !record.dateBasis && options.generate && calls < 8 && Date.parse(now) >= nextTry) {
         calls++
         try {
           const focus = !chineseLogs.has(product) ? excerpt(record.highlights[0] || evidence, 500) :
