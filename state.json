@@ -1,42 +1,42 @@
 {
-  "capturedAt": "2026-11-27T02:51:02.252Z",
-  "checkedAt": "2026-11-27T02:51:02.252Z",
+  "capturedAt": "2026-11-27T12:13:07.940Z",
+  "checkedAt": "2026-11-27T12:13:07.940Z",
   "sources": {
     "codex": {
       "available": true,
-      "checkedAt": "2026-11-27T02:51:02.252Z"
+      "checkedAt": "2026-11-27T12:13:07.940Z"
     },
     "deepseek": {
       "available": true,
-      "checkedAt": "2026-11-27T02:51:02.252Z"
+      "checkedAt": "2026-11-27T12:13:07.940Z"
     },
     "claude": {
       "available": true,
-      "checkedAt": "2026-11-27T02:51:02.252Z"
+      "checkedAt": "2026-11-27T12:13:07.940Z"
     },
     "ollama": {
       "available": true,
-      "checkedAt": "2026-11-27T02:51:02.252Z"
+      "checkedAt": "2026-11-27T12:13:07.940Z"
     },
     "glm": {
       "available": true,
-      "checkedAt": "2026-11-27T02:51:02.252Z"
+      "checkedAt": "2026-11-27T12:13:07.940Z"
     },
     "kimi": {
       "available": true,
-      "checkedAt": "2026-11-27T02:51:02.252Z"
+      "checkedAt": "2026-11-27T12:13:07.940Z"
     },
     "qwen": {
       "available": true,
-      "checkedAt": "2026-11-27T02:51:02.252Z"
+      "checkedAt": "2026-11-27T12:13:07.940Z"
     },
     "seed": {
       "available": true,
-      "checkedAt": "2026-11-27T02:51:02.252Z"
+      "checkedAt": "2026-11-27T12:13:07.940Z"
     },
     "meta": {
       "available": true,
-      "checkedAt": "2026-11-27T02:51:02.252Z"
+      "checkedAt": "2026-11-27T12:13:07.940Z"
     }
   },
   "entries": [
@@ -139,6 +139,31 @@
         "audience": "使用 Claude Code 排查连接问题的人。",
         "action": "在终端运行 claude doctor，查看 API 连通性一栏。",
         "kind": "editor"
+      },
+      "attempts": 0,
+      "nextTry": 0,
+      "attemptFormat": 5
+    },
+    {
+      "id": "glm-2026-11-23",
+      "product": "glm",
+      "date": "2026-11-23",
+      "version": "",
+      "publishedAt": null,
+      "url": "https://docs.bigmodel.cn/cn/update/new-releases#2026-11-23",
+      "highlights": [
+        "GLM-5.4 新一代旗舰模型上线"
+      ],
+      "firstSeenAt": "2026-11-27T12:13:07.940Z",
+      "digest": "63ff276a405fb4920df00b96f11ac002623d0301062a1f05841f91ca299c8994",
+      "guide": {
+        "kind": "ai",
+        "title": "智谱 GLM 推出 GLM-5.4 新一代旗舰模型",
+        "summary": "GLM-5.4 新一代旗舰模型上线。以 Scaling Loop 突破智能上限：采用 Loop Transformer 架构，通过循环复用网络层实现更深度推理，智能水平比肩 2–3T 级模型。",
+        "audience": "智谱 GLM 用户",
+        "action": "启用 GLM-5.4 新一代旗舰模型以实现更深度推理和突破智能上限。",
+        "basis": "GLM-5.4 新一代旗舰模型上线。以 Scaling Loop 突破智能上限：采用 Loop Transformer 架构，通过循环复用网络层实现更深度推理，智能水平比肩 2–3T 级模型。",
+        "format": 5
       },
       "attempts": 0,
       "nextTry": 0,
@@ -767,7 +792,7 @@
       "date": "2026-08-19",
       "version": "",
       "publishedAt": null,
-      "url": "https://docs.bigmodel.cn/cn/update/new-releases#2026-8-19",
+      "url": "https://docs.bigmodel.cn/cn/update/new-releases#2026-08-19",
       "highlights": [
         "GLM-5.3 新一代旗舰模型上线"
       ],
