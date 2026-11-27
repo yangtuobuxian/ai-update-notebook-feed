@@ -1,42 +1,42 @@
 {
-  "capturedAt": "2026-11-27T12:13:07.940Z",
-  "checkedAt": "2026-11-27T12:13:07.940Z",
+  "capturedAt": "2026-11-27T21:16:26.401Z",
+  "checkedAt": "2026-11-27T21:16:26.401Z",
   "sources": {
     "codex": {
       "available": true,
-      "checkedAt": "2026-11-27T12:13:07.940Z"
+      "checkedAt": "2026-11-27T21:16:26.401Z"
     },
     "deepseek": {
       "available": true,
-      "checkedAt": "2026-11-27T12:13:07.940Z"
+      "checkedAt": "2026-11-27T21:16:26.401Z"
     },
     "claude": {
       "available": true,
-      "checkedAt": "2026-11-27T12:13:07.940Z"
+      "checkedAt": "2026-11-27T21:16:26.401Z"
     },
     "ollama": {
       "available": true,
-      "checkedAt": "2026-11-27T12:13:07.940Z"
+      "checkedAt": "2026-11-27T21:16:26.401Z"
     },
     "glm": {
       "available": true,
-      "checkedAt": "2026-11-27T12:13:07.940Z"
+      "checkedAt": "2026-11-27T21:16:26.401Z"
     },
     "kimi": {
       "available": true,
-      "checkedAt": "2026-11-27T12:13:07.940Z"
+      "checkedAt": "2026-11-27T21:16:26.401Z"
     },
     "qwen": {
       "available": true,
-      "checkedAt": "2026-11-27T12:13:07.940Z"
+      "checkedAt": "2026-11-27T21:16:26.401Z"
     },
     "seed": {
       "available": true,
-      "checkedAt": "2026-11-27T12:13:07.940Z"
+      "checkedAt": "2026-11-27T21:16:26.401Z"
     },
     "meta": {
       "available": true,
-      "checkedAt": "2026-11-27T12:13:07.940Z"
+      "checkedAt": "2026-11-27T21:16:26.401Z"
     }
   },
   "entries": [
