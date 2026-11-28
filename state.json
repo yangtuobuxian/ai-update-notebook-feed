@@ -1,45 +1,72 @@
 {
-  "capturedAt": "2026-11-27T21:16:26.401Z",
-  "checkedAt": "2026-11-27T21:16:26.401Z",
+  "capturedAt": "2026-11-28T03:21:05.925Z",
+  "checkedAt": "2026-11-28T03:21:05.925Z",
   "sources": {
     "codex": {
       "available": true,
-      "checkedAt": "2026-11-27T21:16:26.401Z"
+      "checkedAt": "2026-11-28T03:21:05.925Z"
     },
     "deepseek": {
       "available": true,
-      "checkedAt": "2026-11-27T21:16:26.401Z"
+      "checkedAt": "2026-11-28T03:21:05.925Z"
     },
     "claude": {
       "available": true,
-      "checkedAt": "2026-11-27T21:16:26.401Z"
+      "checkedAt": "2026-11-28T03:21:05.925Z"
     },
     "ollama": {
       "available": true,
-      "checkedAt": "2026-11-27T21:16:26.401Z"
+      "checkedAt": "2026-11-28T03:21:05.925Z"
     },
     "glm": {
       "available": true,
-      "checkedAt": "2026-11-27T21:16:26.401Z"
+      "checkedAt": "2026-11-28T03:21:05.925Z"
     },
     "kimi": {
       "available": true,
-      "checkedAt": "2026-11-27T21:16:26.401Z"
+      "checkedAt": "2026-11-28T03:21:05.925Z"
     },
     "qwen": {
       "available": true,
-      "checkedAt": "2026-11-27T21:16:26.401Z"
+      "checkedAt": "2026-11-28T03:21:05.925Z"
     },
     "seed": {
       "available": true,
-      "checkedAt": "2026-11-27T21:16:26.401Z"
+      "checkedAt": "2026-11-28T03:21:05.925Z"
     },
     "meta": {
       "available": true,
-      "checkedAt": "2026-11-27T21:16:26.401Z"
+      "checkedAt": "2026-11-28T03:21:05.925Z"
     }
   },
   "entries": [
+    {
+      "id": "ollama-v0.40.19",
+      "product": "ollama",
+      "version": "0.40.19",
+      "date": "2026-11-27",
+      "publishedAt": "2026-11-26T17:52:02Z",
+      "url": "https://github.com/ollama/ollama/releases/tag/v0.40.19",
+      "highlights": [
+        "inkling2: faster short histories, draft proposals and conv snapshots by @dhiltgen in https://github.com/ollama/ollama/pull/19881",
+        "mlxrunner: compact Engram history buffers by @pdevine in https://github.com/ollama/ollama/pull/19913",
+        "bump llama-server by @pdevine in https://github.com/ollama/ollama/pull/19917"
+      ],
+      "firstSeenAt": "2026-11-28T03:21:05.925Z",
+      "digest": "f45d55cc54229d0d1e17e0a48a61fc6761bc9f3f3002f69c00aa893ca00bf48f",
+      "guide": {
+        "kind": "ai",
+        "title": "Ollama 2 支持更快的短历史记录、草案提案和会议快照",
+        "summary": "Ollama 2 通过 inkling2 分支引入了更快的短历史记录、草案提案和会议快照功能，该功能由 @dhiltgen 在 https://github.com/ollama/ollama/pull/19881 提交。",
+        "audience": "Ollama 用户",
+        "action": "启用 Ollama 2 的 inkling2 分支以使用更快的短历史记录、草案提案和会议快照功能。",
+        "basis": "inkling2: faster short histories, draft proposals and conv snapshots by @dhiltgen in https://github.com/ollama/ollama/pull/19881",
+        "format": 5
+      },
+      "attempts": 0,
+      "nextTry": 0,
+      "attemptFormat": 5
+    },
     {
       "id": "claude-v2.1.332",
       "product": "claude",
